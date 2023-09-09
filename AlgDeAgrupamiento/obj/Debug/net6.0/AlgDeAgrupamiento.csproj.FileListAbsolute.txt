@@ -1,0 +1,12 @@
+C:\Users\ManuelAlejandro\source\repos\AlgDeAgrupamiento\AlgDeAgrupamiento\obj\Debug\net6.0\AlgDeAgrupamiento.csproj.AssemblyReference.cache
+C:\Users\ManuelAlejandro\source\repos\AlgDeAgrupamiento\AlgDeAgrupamiento\obj\Debug\net6.0\AlgDeAgrupamiento.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ManuelAlejandro\source\repos\AlgDeAgrupamiento\AlgDeAgrupamiento\obj\Debug\net6.0\AlgDeAgrupamiento.AssemblyInfoInputs.cache
+C:\Users\ManuelAlejandro\source\repos\AlgDeAgrupamiento\AlgDeAgrupamiento\obj\Debug\net6.0\AlgDeAgrupamiento.AssemblyInfo.cs
+C:\Users\ManuelAlejandro\source\repos\AlgDeAgrupamiento\AlgDeAgrupamiento\obj\Debug\net6.0\AlgDeAgrupamiento.csproj.CoreCompileInputs.cache
+C:\Users\ManuelAlejandro\source\repos\AlgDeAgrupamiento\AlgDeAgrupamiento\bin\Debug\net6.0\AlgDeAgrupamiento.deps.json
+C:\Users\ManuelAlejandro\source\repos\AlgDeAgrupamiento\AlgDeAgrupamiento\bin\Debug\net6.0\AlgDeAgrupamiento.dll
+C:\Users\ManuelAlejandro\source\repos\AlgDeAgrupamiento\AlgDeAgrupamiento\bin\Debug\net6.0\ref\AlgDeAgrupamiento.dll
+C:\Users\ManuelAlejandro\source\repos\AlgDeAgrupamiento\AlgDeAgrupamiento\bin\Debug\net6.0\AlgDeAgrupamiento.pdb
+C:\Users\ManuelAlejandro\source\repos\AlgDeAgrupamiento\AlgDeAgrupamiento\obj\Debug\net6.0\AlgDeAgrupamiento.dll
+C:\Users\ManuelAlejandro\source\repos\AlgDeAgrupamiento\AlgDeAgrupamiento\obj\Debug\net6.0\ref\AlgDeAgrupamiento.dll
+C:\Users\ManuelAlejandro\source\repos\AlgDeAgrupamiento\AlgDeAgrupamiento\obj\Debug\net6.0\AlgDeAgrupamiento.pdb

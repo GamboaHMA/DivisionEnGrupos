@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "7a2fc282-7df9-49d5-b8d6-dfac40b80da3": {
+      "ProjectGuid": "7a2fc282-7df9-49d5-b8d6-dfac40b80da3",
+      "DisplayName": "AlgoritmoDeAgrupamiento",
+      "ColorIndex": 0
+    },
+    "c47cdc54-f1a1-4d85-a1ff-75697c21a97e": {
+      "ProjectGuid": "c47cdc54-f1a1-4d85-a1ff-75697c21a97e",
+      "DisplayName": "IHeapMax",
+      "ColorIndex": 1
+    },
+    "7e13a76b-1f8a-4415-a5e8-dd35a63a2be3": {
+      "ProjectGuid": "7e13a76b-1f8a-4415-a5e8-dd35a63a2be3",
+      "DisplayName": "HeapMax_",
+      "ColorIndex": 2
+    },
+    "c626a652-c7ee-443b-bf72-93140eb05856": {
+      "ProjectGuid": "c626a652-c7ee-443b-bf72-93140eb05856",
+      "DisplayName": "Algoritm",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}

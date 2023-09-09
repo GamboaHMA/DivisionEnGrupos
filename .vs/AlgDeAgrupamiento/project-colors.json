@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "847bb539-0d9b-4c0a-a349-5a3f097fe968": {
+      "ProjectGuid": "847bb539-0d9b-4c0a-a349-5a3f097fe968",
+      "DisplayName": "Ejecutable_",
+      "ColorIndex": 0
+    },
+    "25968a44-e5b7-4139-a481-44a43124c92c": {
+      "ProjectGuid": "25968a44-e5b7-4139-a481-44a43124c92c",
+      "DisplayName": "Ejecutable",
+      "ColorIndex": 1
+    },
+    "9ffe70f8-5aa5-4978-b49f-98cfeedeec34": {
+      "ProjectGuid": "9ffe70f8-5aa5-4978-b49f-98cfeedeec34",
+      "DisplayName": "AlgDeAgrupamiento",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}

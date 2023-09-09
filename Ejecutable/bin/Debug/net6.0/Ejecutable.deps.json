@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Ejecutable/1.0.0": {
+        "dependencies": {
+          "AlgDeAgrupamiento": "1.0.0"
+        },
+        "runtime": {
+          "Ejecutable.dll": {}
+        }
+      },
+      "AlgDeAgrupamiento/1.0.0": {
+        "runtime": {
+          "AlgDeAgrupamiento.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Ejecutable/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AlgDeAgrupamiento/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
