@@ -13,23 +13,86 @@ namespace AlgDeAgrupamiento
 
         }
 
-
-        public void ClustersR(List<Distance> HeapMax, List<Entity> entities)
+               
+        
+        public List<List<Entity>> Clusters(List<List<Entity>> list, int nivel)
         {
+            while(nivel != 0)
+            {
+                List<List<Entity>> result = new List<List<Entity>>();
+
+                foreach (var item in list)
+                {
+                    ClustersR(item);
+                    (List<Entity>, List<Entity>) clustersResult = ReturnGroups(item);
+                    
+                    List<Entity> less = clustersResult.Item1;
+                    List<Entity> further = clustersResult.Item2;
+
+                    result.Add(less); result.Add(further);
+                }
+
+                list.Clear();
+
+                foreach (var item in result)
+                {
+                    list.Add(item);
+                }
+
+
+
+
+                nivel--;
+            }
+
+            return list;
+        }
+
+        public void ClustersR(List<Entity> entities)
+        {
+            List<Distance> distances = new List<Distance>();
+
+            for (int i = 0; i < entities.Count; i++)
+            {
+                for (int j = i + 1; j < entities.Count; j++)
+                {
+                    Distance distance = new Distance(entities[i], entities[j], Math.Abs(entities[i].value - entities[j].value));
+                    distances.Add(distance);
+                }
+            }
+
+
             int count = 1;
+
+            Distance HeapMax = new Distance(distances);
+            List<Entity> Entities = new List<Entity>();
+
+            foreach (var item in HeapMax.Arr)
+            {
+                if (!Entities.Contains(item.Element1)) Entities.Add(item.Element1);
+                if (!Entities.Contains(item.Element2)) Entities.Add(item.Element2);
+            }
 
             List<List<Entity>> clusters = new List<List<Entity>>();
             List<List<Entity>> clusters_c = new List<List<Entity>>();
 
-            Entity e1 = HeapMax[0].Element1;                                          // caso inicial
-            Entity e2 = HeapMax[0].Element2;
+            Entity e1 = HeapMax.Arr[0].Element1;                                          // caso inicial
+            Entity e2 = HeapMax.Arr[0].Element2;
 
-            clusters.Add(new List<Entity>() { e1 }); e1.group = count;                // asigno un elemento al grupo A y otro al grupo B
-            clusters_c.Add(new List<Entity>() { e2 }); e2.group = -1 * count;         // y luego le añado a la propiedad del elemento su grupo
+            if (e1.value > e2.value)
+            {
+                clusters.Add(new List<Entity>() { e1 }); e1.group = count;                // asigno un elemento al grupo A y otro al grupo B
+                clusters_c.Add(new List<Entity>() { e2 }); e2.group = -1 * count;         // y luego le añado a la propiedad del elemento su grupo
+            }
 
+            else
+            {
+                clusters.Add(new List<Entity>() { e2 }); e2.group = count;
+                clusters_c.Add(new List<Entity>() { e1 }); e1.group = -1 * count;     // asignamos al primer grupo siempre los valores mayores siempre
+            }
                                                                                       // asumimos que el grupo 1 es el A, y el grupo -1 es el B
 
-            ClustersR(HeapMax, entities, clusters, clusters_c, e1, e2, count, 3);     
+            ClustersR(HeapMax.Arr, Entities, clusters, clusters_c, e1, e2, count, 3);     
         }
 
         private void ClustersR(List<Distance> HeapMax, List<Entity> entities, List<List<Entity>> c1, 
@@ -49,8 +112,16 @@ namespace AlgDeAgrupamiento
                     break;
 
                 case 4:
-                    c1.Add(new List<Entity>() { e1 }); e1.group = count;
-                    c2.Add(new List<Entity>() { e2 }); e2.group = -1 * count;
+                    if(e1.value > e2.value)
+                    {
+                        c1.Add(new List<Entity>() { e1 }); e1.group = count;
+                        c2.Add(new List<Entity>() { e2 }); e2.group = -1 * count;
+                    }
+                    else
+                    {
+                        c1.Add(new List<Entity>() { e2 }); e2.group = count;
+                        c2.Add(new List<Entity>() { e1 }); e1.group = -1 * count;
+                    }
 
                     ClustersR(HeapMax, entities, c1, c2, e1, e2, count, 3);
                     break;
@@ -129,7 +200,7 @@ namespace AlgDeAgrupamiento
             {
                 if(e2.group == 0)
                 {
-                    c1[-1 * e1.group].Add(e2); e2.group = -1 * e1.group;
+                    c1[-1 * e1.group - 1].Add(e2); e2.group = -1 * e1.group;
                 }
 
                 else
@@ -137,32 +208,32 @@ namespace AlgDeAgrupamiento
                     int group = e2.group;
                     if (group < 0)
                     {
-                        foreach (var item in c2[-1 * group])
+                        foreach (var item in c2[-1 * group - 1])
                         {
-                            c1[-1 * e1.group].Add(item); item.group = -1 * e1.group; 
+                            c1[-1 * e1.group - 1].Add(item); item.group = -1 * e1.group; 
                         }
-                        c2[-1 * group].Clear();
+                        c2[-1 * group - 1].Clear();
 
-                        foreach (var item in c1[-1 * group])
+                        foreach (var item in c1[-1 * group - 1])
                         {
-                            c2[-1 * e2.group].Add(item); item.group = e1.group;
+                            c2[-1 * e2.group - 1].Add(item); item.group = e1.group;
                         }
-                        c1[-1 * group].Clear();
+                        c1[-1 * group - 1].Clear();
                     }
 
                     else
                     {
-                        foreach (var item in c1[group])
+                        foreach (var item in c1[group - 1])
                         {
-                            c1[-1 * e1.group].Add(item); item.group = -1 * e1.group;
+                            c1[-1 * e1.group - 1].Add(item); item.group = -1 * e1.group;
                         }
-                        c1[group].Clear();
+                        c1[group - 1].Clear();
 
-                        foreach (var item in c2[group])
+                        foreach (var item in c2[group - 1])
                         {
-                            c2[-1 * e1.group].Add(item); item.group = e1.group;
+                            c2[-1 * e1.group - 1].Add(item); item.group = e1.group;
                         }
-                        c2[group].Clear();
+                        c2[group - 1].Clear();
                     }
                 }
             }
@@ -171,7 +242,7 @@ namespace AlgDeAgrupamiento
             {
                 if (e2.group == 0)
                 {
-                    c2[e1.group].Add(e2); e2.group = -1 * e1.group;
+                    c2[e1.group - 1].Add(e2); e2.group = -1 * e1.group;
                 }
 
                 else
@@ -181,30 +252,30 @@ namespace AlgDeAgrupamiento
                     {
                         foreach (var item in c2[-1 * group])
                         {
-                            c2[e1.group].Add(item); item.group = -1 * e1.group;
+                            c2[e1.group - 1].Add(item); item.group = -1 * e1.group;
                         }
-                        c2[-1 * group].Clear();
+                        c2[-1 * group - 1].Clear();
 
-                        foreach (var item in c1[-1 * group])
+                        foreach (var item in c1[-1 * group - 1])
                         {
-                            c1[e1.group].Add(item); item.group = e1.group;
+                            c1[e1.group - 1].Add(item); item.group = e1.group;
                         }
-                        c1[-1 * group].Clear();
+                        c1[-1 * group - 1].Clear();
                     }
 
                     else
                     {
-                        foreach (var item in c1[group])
+                        foreach (var item in c1[group - 1])
                         {
-                            c2[e1.group].Add(item); item.group = -1 * e1.group;
+                            c2[e1.group - 1].Add(item); item.group = -1 * e1.group;
                         }
-                        c1[group].Clear();
+                        c1[group - 1].Clear();
 
-                        foreach (var item in c2[group])
+                        foreach (var item in c2[group - 1])
                         {
-                            c1[e1.group].Add(item); item.group = e1.group;
+                            c1[e1.group - 1].Add(item); item.group = e1.group;
                         }
-                        c2[group].Clear();
+                        c2[group - 1].Clear();
                     }
                 }
             }
@@ -224,5 +295,29 @@ namespace AlgDeAgrupamiento
                 }
             }
         }
+
+        public (List<Entity>, List<Entity>) ReturnGroups(List<Entity> entities)
+        {
+            List<Entity> furhter = new List<Entity>();
+            List<Entity> less = new List<Entity>();
+
+            foreach (var item in entities)
+            {
+                if (item.group == 1)
+                {
+                    furhter.Add(item);
+                    item.group = 0;                      // reasignamos el valor de la etiqueta de la entidad para en un futuro seguir
+                }                                        // aplicándole el algoritmo y seguir agrupándola
+                else
+                {
+                    less.Add(item);
+                    item.group = 0;
+                }
+            }
+
+            return (less, furhter);
+        }
+
+
     }
 }

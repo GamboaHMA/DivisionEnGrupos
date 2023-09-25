@@ -8,6 +8,7 @@ namespace AlgDeAgrupamiento
 {
     public class Distance
     {
+        public List<Entity> entities {  get; set; }
         public Entity? Element1 { get; set; }
         public Entity? Element2 { get; set; }
         public double Value { get; set; }

@@ -10,6 +10,7 @@ namespace AlgDeAgrupamiento
     {
         public int value { get; set; }
         public int group { get; set; }
+        public string name { get; set; }
 
         public Entity(int value)
         {
