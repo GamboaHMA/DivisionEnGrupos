@@ -8,19 +8,20 @@ namespace AlgDeAgrupamiento
 {
     public class Entity
     {
-        public int value { get; set; }
+        public List<double> coordinates { get; set; }
         public int group { get; set; }
         public string name { get; set; }
 
-        public Entity(int value)
+        public Entity(List<double> coordinates)
         {
-            this.value = value;
+            this.coordinates = new List<double>();
+            this.coordinates = coordinates;
             group = 0;
         }
 
         public override string ToString()
         {
-            return value.ToString();
+            return name;
         }
     }
 }

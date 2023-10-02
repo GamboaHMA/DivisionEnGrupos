@@ -56,7 +56,7 @@ namespace AlgDeAgrupamiento
             {
                 for (int j = i + 1; j < entities.Count; j++)
                 {
-                    Distance distance = new Distance(entities[i], entities[j], Math.Abs(entities[i].value - entities[j].value));
+                    Distance distance = new Distance(entities[i], entities[j], EuclidianDistance(entities[i].coordinates, entities[j].coordinates));
                     distances.Add(distance);
                 }
             }
@@ -318,6 +318,15 @@ namespace AlgDeAgrupamiento
             return (less, furhter);
         }
 
+        public double EuclidianDistance(List<double> ent1, List<double> ent2)
+        {
+            double tot = 0;
+            for (int i = 0; i < ent1.Count; i++)
+            {
+                tot += Math.Pow(ent1[i] - ent2[i], 2);
+            }
 
+            return Math.Sqrt(tot);
+        }
     }
 }
