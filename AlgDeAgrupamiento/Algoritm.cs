@@ -79,18 +79,8 @@ namespace AlgDeAgrupamiento
             Entity e1 = HeapMax.Arr[0].Element1;                                          // caso inicial
             Entity e2 = HeapMax.Arr[0].Element2;
 
-            if (e1.value > e2.value)
-            {
-                clusters.Add(new List<Entity>() { e1 }); e1.group = count;                // asigno un elemento al grupo A y otro al grupo B
-                clusters_c.Add(new List<Entity>() { e2 }); e2.group = -1 * count;         // y luego le añado a la propiedad del elemento su grupo
-            }
-
-            else
-            {
-                clusters.Add(new List<Entity>() { e2 }); e2.group = count;
-                clusters_c.Add(new List<Entity>() { e1 }); e1.group = -1 * count;     // asignamos al primer grupo siempre los valores mayores siempre
-            }
-                                                                                      // asumimos que el grupo 1 es el A, y el grupo -1 es el B
+            clusters.Add(new List<Entity>() { e1 }); e1.group = count;                // asigno un elemento al grupo A y otro al grupo B
+            clusters_c.Add(new List<Entity>() { e2 }); e2.group = -1 * count;         // y luego le añado a la propiedad del elemento su grupo
 
             ClustersR(HeapMax.Arr, Entities, clusters, clusters_c, e1, e2, count, 3);     
         }
@@ -112,16 +102,8 @@ namespace AlgDeAgrupamiento
                     break;
 
                 case 4:
-                    if(e1.value > e2.value)
-                    {
-                        c1.Add(new List<Entity>() { e1 }); e1.group = count;
-                        c2.Add(new List<Entity>() { e2 }); e2.group = -1 * count;
-                    }
-                    else
-                    {
-                        c1.Add(new List<Entity>() { e2 }); e2.group = count;
-                        c2.Add(new List<Entity>() { e1 }); e1.group = -1 * count;
-                    }
+                    c1.Add(new List<Entity>() { e1 }); e1.group = count;
+                    c2.Add(new List<Entity>() { e2 }); e2.group = -1 * count;
 
                     ClustersR(HeapMax, entities, c1, c2, e1, e2, count, 3);
                     break;
