@@ -12,11 +12,12 @@ namespace AlgDeAgrupamiento
         public int group { get; set; }
         public string name { get; set; }
 
-        public Entity(List<double> coordinates)
+        public Entity(List<double> coordinates, string name)
         {
             this.coordinates = new List<double>();
             this.coordinates = coordinates;
             group = 0;
+            this.name = name;
         }
 
         public override string ToString()

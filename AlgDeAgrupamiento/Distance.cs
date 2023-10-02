@@ -38,23 +38,26 @@ namespace AlgDeAgrupamiento
 
         public Distance(List<Distance> Array)
         {
-            Link(Array);
-
-            for (int i = Array.Count / 2; i >= 0; i--)
+            if (Array.Count() != 0) 
             {
-                HeapiFy(Array, i);
+                Link(Array);
+
+                for (int i = Array.Count / 2; i >= 0; i--)
+                {
+                    HeapiFy(Array, i);
+                }
+
+                UpDateRoot(Array);
+
+                Element1 = Array[0].Element1;
+                Element2 = Array[0].Element2;
+                Value = Array[0].Value;
+                Parent = Array[0].Parent;
+                Left = Array[0].Left;
+                Right = Array[0].Right;
+                Root = Array[0].Root;
+                Arr = Array[0].Arr;
             }
-
-            UpDateRoot(Array);
-
-            Element1 = Array[0].Element1;
-            Element2 = Array[0].Element2;
-            Value = Array[0].Value;
-            Parent = Array[0].Parent;
-            Left = Array[0].Left;
-            Right = Array[0].Right;
-            Root = Array[0].Root;
-            Arr = Array[0].Arr;
         }
 
         public void HeapiFy(List<Distance> Array, int i)
@@ -139,22 +142,26 @@ namespace AlgDeAgrupamiento
 
         public void UpDateRoot(List<Distance> Array)
         {
-            Distance root = Array[0];
-            Array[0].Parent = Array[0];
-            Array[0].Root = root;
-            for (int i = 0; i < Array.Count; i++)
+            if(Array.Count != 0)
             {
-                Array[i].Root = root;
+                Distance root = Array[0];
+                Array[0].Parent = Array[0];
+                Array[0].Root = root;
+                for (int i = 0; i < Array.Count; i++)
+                {
+                    Array[i].Root = root;
+                }
             }
         }
         public void Elimina()
         {
+
             if (Arr[Arr.Count - 1] == Arr[Arr.Count - 1].Parent.Left) Arr[Arr.Count - 1].Parent.Left = null;
             else Arr[Arr.Count - 1].Right = null; 
 
             Arr[Arr.Count - 1].Left = Arr[0].Left; Arr[Arr.Count - 1].Right = Arr[0].Right;
-            Arr[Arr.Count - 1].Parent = Arr[Arr.Count - 1]; 
-            Arr[Arr.Count - 1].Left.Parent = Arr[Arr.Count - 1]; Arr[Arr.Count - 1].Right.Parent = Arr[Arr.Count - 1];
+            Arr[Arr.Count - 1].Parent = Arr[Arr.Count - 1];
+            if (Arr.Count > 1) { Arr[Arr.Count - 1].Left.Parent = Arr[Arr.Count - 1]; Arr[Arr.Count - 1].Right.Parent = Arr[Arr.Count - 1]; }
 
 
             Distance comodin = Arr[Arr.Count - 1];

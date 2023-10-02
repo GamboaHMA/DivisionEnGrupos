@@ -17,6 +17,7 @@ namespace AlgDeAgrupamiento
         
         public List<List<Entity>> Clusters(List<List<Entity>> list, int nivel)
         {
+            
             while(nivel != 0)
             {
                 List<List<Entity>> result = new List<List<Entity>>();
@@ -67,22 +68,25 @@ namespace AlgDeAgrupamiento
             Distance HeapMax = new Distance(distances);
             List<Entity> Entities = new List<Entity>();
 
-            foreach (var item in HeapMax.Arr)
+            if(HeapMax.Arr != null)
             {
-                if (!Entities.Contains(item.Element1)) Entities.Add(item.Element1);
-                if (!Entities.Contains(item.Element2)) Entities.Add(item.Element2);
+                foreach (var item in HeapMax.Arr)
+                {
+                    if (!Entities.Contains(item.Element1)) Entities.Add(item.Element1);
+                    if (!Entities.Contains(item.Element2)) Entities.Add(item.Element2);
+                }
+
+                List<List<Entity>> clusters = new List<List<Entity>>();
+                List<List<Entity>> clusters_c = new List<List<Entity>>();
+
+                Entity e1 = HeapMax.Arr[0].Element1;                                          // caso inicial
+                Entity e2 = HeapMax.Arr[0].Element2;
+
+                clusters.Add(new List<Entity>() { e1 }); e1.group = count;                // asigno un elemento al grupo A y otro al grupo B
+                clusters_c.Add(new List<Entity>() { e2 }); e2.group = -1 * count;         // y luego le añado a la propiedad del elemento su grupo                                                                                      // asumimos que el grupo 1 es el A, y el grupo -1 es el B
+
+                ClustersR(HeapMax.Arr, Entities, clusters, clusters_c, e1, e2, count, 3);     
             }
-
-            List<List<Entity>> clusters = new List<List<Entity>>();
-            List<List<Entity>> clusters_c = new List<List<Entity>>();
-
-            Entity e1 = HeapMax.Arr[0].Element1;                                          // caso inicial
-            Entity e2 = HeapMax.Arr[0].Element2;
-
-            clusters.Add(new List<Entity>() { e1 }); e1.group = count;                // asigno un elemento al grupo A y otro al grupo B
-            clusters_c.Add(new List<Entity>() { e2 }); e2.group = -1 * count;         // y luego le añado a la propiedad del elemento su grupo
-
-            ClustersR(HeapMax.Arr, Entities, clusters, clusters_c, e1, e2, count, 3);     
         }
 
         private void ClustersR(List<Distance> HeapMax, List<Entity> entities, List<List<Entity>> c1, 
