@@ -24,13 +24,18 @@ namespace AlgDeAgrupamiento
 
                 foreach (var item in list)
                 {
-                    ClustersR(item);
-                    (List<Entity>, List<Entity>) clustersResult = ReturnGroups(item);
-                    
-                    List<Entity> less = clustersResult.Item1;
-                    List<Entity> further = clustersResult.Item2;
+                    if (item.Count > 2)
+                    {
+                        ClustersR(item);
+                        (List<Entity>, List<Entity>) clustersResult = ReturnGroups(item);
 
-                    result.Add(less); result.Add(further);
+                        List<Entity> less = clustersResult.Item1;
+                        List<Entity> further = clustersResult.Item2;
+
+                        result.Add(less); result.Add(further);
+                    }
+
+                    else result.Add(item);
                 }
 
                 list.Clear();
