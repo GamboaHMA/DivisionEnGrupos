@@ -1,0 +1,4 @@
+C:\Users\ManuelAlejandro\source\repos\DivisionEnGrupos\ProveedorDeDatosDePoblacionCuba\obj\Debug\net6.0\ProveedorDeDatosDePoblacionCuba.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ManuelAlejandro\source\repos\DivisionEnGrupos\ProveedorDeDatosDePoblacionCuba\obj\Debug\net6.0\ProveedorDeDatosDePoblacionCuba.AssemblyInfoInputs.cache
+C:\Users\ManuelAlejandro\source\repos\DivisionEnGrupos\ProveedorDeDatosDePoblacionCuba\obj\Debug\net6.0\ProveedorDeDatosDePoblacionCuba.AssemblyInfo.cs
+C:\Users\ManuelAlejandro\source\repos\DivisionEnGrupos\ProveedorDeDatosDePoblacionCuba\obj\Debug\net6.0\ProveedorDeDatosDePoblacionCuba.csproj.CoreCompileInputs.cache
