@@ -1,4 +1,6 @@
-﻿namespace ProveedorDeDatosDePoblacionCuba
+﻿using System.Security.AccessControl;
+
+namespace ProveedorDeDatosDePoblacionCuba
 {
     public class Data
     {
@@ -13,7 +15,7 @@
             (string, double) LosPalacios = ("Los Palacios", 1706 + 1923 + 1962 + 2183);
             (string, double) ConsolacionDelSur = ("Consolación del Sur", 4221 + 4610 + 4814 + 4972);
             (string, double) PinarDelRio = ("Pinar del Río", 9989 + 11094 + 9672 + 10628);
-            (string, double) SanLuis_PR = ("San Luis", 1582 + 1633 + 1607 + 1938);
+            (string, double) SanLuis_PR = ("San Luis_PR", 1582 + 1633 + 1607 + 1938);
             (string, double) SanJuanYMartinez = ("San Juan y Martínez", 2119 + 2145 + 2188 + 2540);
             (string, double) Guane = ("Guane", 1712 + 1888 + 1828 + 2098);
 
@@ -682,209 +684,209 @@
     }
     */
 
-        /*
-    public List<(string, double)> dataEdadMujerFertil()    // 15 - 34 anios
+        
+    public List<(string, double)> dataEdadMujerFertil()    // Mujeres 15 - 34 anios
     {
 
         //Pinar del Rio
-        (string, double) Sandino = ("Sandino", );
-        (string, double) Mantua = ("Mantua", );
-        (string, double) MinasDeMataHambre = ("Minas De Matahambre", );
-        (string, double) Viniales = ("Viñales", );
-        (string, double) LaPalma = ("La Palma", );
-        (string, double) LosPalacios = ("Los Palacios", );
-        (string, double) ConsolacionDelSur = ("Consolación del Sur", );
-        (string, double) PinarDelRio = ("Pinar del Río", );
-        (string, double) SanLuis_PR = ("San Luis", );
-        (string, double) SanJuanYMartinez = ("San Juan y Martínez", );
-        (string, double) Guane = ("Guane", );
+        (string, double) Sandino = ("Sandino", 958 + 1117 + 1126 + 1232);
+        (string, double) Mantua = ("Mantua", 640 + 758 + 677 + 737);
+        (string, double) MinasDeMataHambre = ("Minas De Matahambre", 882 + 904 + 972 + 983);
+        (string, double) Viniales = ("Viñales", 849 + 940 + 865 + 968);
+        (string, double) LaPalma = ("La Palma", 953 + 1032 + 1045 + 1116);
+        (string, double) LosPalacios = ("Los Palacios", 1031 + 1208 + 1212 + 1275);
+        (string, double) ConsolacionDelSur = ("Consolación del Sur", 2337 + 2611 + 2803 + 2787);
+        (string, double) PinarDelRio = ("Pinar del Río", 5136 + 6039 + 5709 + 6527);
+        (string, double) SanLuis_PR = ("San Luis", 889 + 971 + 983 + 969);
+        (string, double) SanJuanYMartinez = ("San Juan y Martínez", 1222 + 1369 + 1290 + 1416);
+        (string, double) Guane = ("Guane", 966 + 1097 + 1085 + 1205);
 
         //Artemisa
-        (string, double) BahiaHonda = ("Bahía Honda", );
-        (string, double) Mariel = ("Mariel", );
-        (string, double) Guanajay = ("Guanajay", );
-        (string, double) Caimito = ("Caimito", );
-        (string, double) Bauta = ("Bauta", );
-        (string, double) SanAntonioDeLosBanios = ("San Antonio de los Baños", );
-        (string, double) GuiradeMelena = ("Güira de Melena", );
-        (string, double) Alquizar = ("Alquízar", );
-        (string, double) Artemisa = ("Artemisa", );
-        (string, double) Candelaria = ("Candelaria", );
-        (string, double) SanCristobal = ("San Cristóbal", );
+        (string, double) BahiaHonda = ("Bahía Honda", 1212 + 1427 + 1302 + 1412);
+        (string, double) Mariel = ("Mariel", 1251 + 1586 + 1473 + 1652);
+        (string, double) Guanajay = ("Guanajay", 720 + 909 + 876 + 1032);
+        (string, double) Caimito = ("Caimito", 1094 + 1391 + 1410 + 1519);
+        (string, double) Bauta = ("Bauta", 1369 + 1625 + 1744 + 1879);
+        (string, double) SanAntonioDeLosBanios = ("San Antonio de los Baños", 1303 + 1657 + 1681 + 1886);
+        (string, double) GuiradeMelena = ("Güira de Melena", 1111 + 1277 + 1374 + 1428);
+        (string, double) Alquizar = ("Alquízar", 887 + 1145 + 1116 + 1243);
+        (string, double) Artemisa = ("Artemisa", 2334 + 2925 + 2867 + 3151);
+        (string, double) Candelaria = ("Candelaria", 624 + 681 + 698 + 802);
+        (string, double) SanCristobal = ("San Cristóbal", 2061 + 2514 + 2264 + 2594 + 2103);
 
         //La Habana
-        (string, double) Playa = ("Playa", );
-        (string, double) PlazadelaRevolución = ("Plaza de la Revolución", );
-        (string, double) CentroHabana = ("Centro Habana", );
-        (string, double) HabanaVieja = ("Habana Vieja", );
-        (string, double) Regla = ("Regla", );
-        (string, double) HabanadelEste = ("Habana del Este", );
-        (string, double) Guanabacoa = ("Guanabacoa", );
-        (string, double) SanMigueldelPadron = ("San Miguel del Padron", );
-        (string, double) DiezdeOctubre = ("Diez de Octubre", );
-        (string, double) Cerro = ("Cerro", );
-        (string, double) Marianao = ("Marianao", );
-        (string, double) LaLisa = ("La Lisa", );
-        (string, double) Boyeros = ("Boyeros", );
-        (string, double) ArroyoNaranjo = ("ArroyoNaranjo", );
-        (string, double) Cotorro = ("Cotorro", );
+        (string, double) Playa = ("Playa", 4234 + 5304 + 5486 + 6460);
+        (string, double) PlazadelaRevolución = ("Plaza de la Revolución", 3044 + 3965 + 4105 + 5010);
+        (string, double) CentroHabana = ("Centro Habana", 3140 + 4061 + 4008 + 4999);
+        (string, double) HabanaVieja = ("Habana Vieja", 1874 + 2436 + 2493 + 3021);
+        (string, double) Regla = ("Regla", 1130 + 1354 + 1422 + 1682);
+        (string, double) HabanadelEste = ("Habana del Este", 4256 + 5159 + 5425 + 6085);
+        (string, double) Guanabacoa = ("Guanabacoa", 3298 + 3959 + 4076 + 4753);
+        (string, double) SanMigueldelPadron = ("San Miguel del Padron", 4481 + 4969 + 5192 + 6125);
+        (string, double) DiezdeOctubre = ("Diez de Octubre", 4905 + 5864 + 6072 + 6873);
+        (string, double) Cerro = ("Cerro", 2943 + 3545 + 3908 + 4605);
+        (string, double) Marianao = ("Marianao", 3518 + 4144 + 4187 + 4939);
+        (string, double) LaLisa = ("La Lisa", 4096 + 4661 + 4444 + 5261);
+        (string, double) Boyeros = ("Boyeros", 5474 + 6298 + 6259 + 7398);
+        (string, double) ArroyoNaranjo = ("ArroyoNaranjo", 5336 + 6147 + 6546 + 7705);
+        (string, double) Cotorro = ("Cotorro", 2155 + 2527 + 2724 + 3002);
 
         //Mayabeque
-        (string, double) Bejucal = ("Bejucal", );
-        (string, double) SanJosédelasLajas = ("San José de las Lajas", );
-        (string, double) Jaruco = ("Jaruco", );
-        (string, double) SantaCruzdelNorte = ("Santa Cruz del Norte", );
-        (string, double) Madruga = ("Madruga", );
-        (string, double) NuevaPaz = ("Nueva Paz", );
-        (string, double) SanNicolás = ("San Nicolás", );
-        (string, double) Güines = ("Güines", );
-        (string, double) MelenadelSur = ("Melena del Sur", );
-        (string, double) Batabanó = ("Batabanó", );
-        (string, double) Quivicán = ("Quivicán", );
+        (string, double) Bejucal = ("Bejucal", 730 + 824 + 920 + 987);
+        (string, double) SanJosédelasLajas = ("San José de las Lajas", 2200 + 2323 + 2361 + 2853);
+        (string, double) Jaruco = ("Jaruco", 575 + 742 + 780 + 879);
+        (string, double) SantaCruzdelNorte = ("Santa Cruz del Norte", 923 + 1021 + 1157 + 1179);
+        (string, double) Madruga = ("Madruga", 604 + 759 + 921 + 894);
+        (string, double) NuevaPaz = ("Nueva Paz", 553 + 752 + 704 + 806);
+        (string, double) SanNicolás = ("San Nicolás", 526 + 671 + 684 + 721);
+        (string, double) Güines = ("Güines", 1740 + 1944 + 1989 + 2355);
+        (string, double) MelenadelSur = ("Melena del Sur", 515 + 661 + 664 + 740);
+        (string, double) Batabanó = ("Batabanó", 721 + 893 + 878 + 967);
+        (string, double) Quivicán = ("Quivicán", 830 + 903 + 952 + 1104);
 
         //Matanzas
-        (string, double) Matanzas = ("Matanzas", );
-        (string, double) Cárdenas = ("Cárdenas", );
-        (string, double) Martí = ("Martí", );
-        (string, double) Colón = ("Colón", );
-        (string, double) Perico = ("Perico", );
-        (string, double) Jovellanos = ("Jovellanos", );
-        (string, double) PedroBetancourt = ("Pedro Betancourt", );
-        (string, double) Limonar = ("Limonar", );
-        (string, double) UnióndeReyes = ("Unión de Reyes", );
-        (string, double) CiénagadeZapata = ("Ciénaga de Zapata", );
-        (string, double) JagueyGrande = ("Jaguey Grande", );
-        (string, double) Calimete = ("Calimete", );
-        (string, double) LosArabos = ("Los Arabos", );
+        (string, double) Matanzas = ("Matanzas", 5307 + 5069 + 5846 + 5415);
+        (string, double) Cárdenas = ("Cárdenas", 3942 + 5018 + 5070 + 6071);
+        (string, double) Martí = ("Martí", 502 + 632 + 669 + 776);
+        (string, double) Colón = ("Colón", 1730 + 2183 + 2220 + 2343);
+        (string, double) Perico = ("Perico", 832 + 851 + 952 + 1047);
+        (string, double) Jovellanos = ("Jovellanos", 1414 + 1644 + 1819 + 1931);
+        (string, double) PedroBetancourt = ("Pedro Betancourt", 633 + 884 + 984 + 978);
+        (string, double) Limonar = ("Limonar", 674 + 816 + 924 + 866);
+        (string, double) UnióndeReyes = ("Unión de Reyes", 886 + 1125 + 1152 + 1200);
+        (string, double) CiénagadeZapata = ("Ciénaga de Zapata", 275 + 365 + 336 + 393);
+        (string, double) JagueyGrande = ("Jaguey Grande", 1528 + 1917 + 1682 + 2110);
+        (string, double) Calimete = ("Calimete", 627 + 926 + 878 + 935);
+        (string, double) LosArabos = ("Los Arabos", 575 + 687 + 676 + 870);
 
         //Cienfuegos
-        (string, double) AguadadePasajeros = ("Aguada de Pasajeros", );
-        (string, double) Rodas = ("Rodas", );
-        (string, double) Palmira = ("Palmira", );
-        (string, double) Lajas = ("Lajas", );
-        (string, double) Cruces = ("Cruces", );
-        (string, double) Cumanayagua = ("Cumanayagua", );
-        (string, double) Cienfuegos = ("Cienfuegos", );
-        (string, double) Abreus = ("Abreus", );
+        (string, double) AguadadePasajeros = ("Aguada de Pasajeros", 910 + 983 + 986 + 1011);
+        (string, double) Rodas = ("Rodas", 922 + 1004 + 1119 + 1256);
+        (string, double) Palmira = ("Palmira", 907 + 991 + 1027 + 1105);
+        (string, double) Lajas = ("Lajas", 588 + 658 + 624 + 665);
+        (string, double) Cruces = ("Cruces", 784 + 872 + 764 + 943);
+        (string, double) Cumanayagua = ("Cumanayagua", 1194 + 1446 + 1383 + 1569);
+        (string, double) Cienfuegos = ("Cienfuegos", 4762 + 5405 + 5760 + 6406);
+        (string, double) Abreus = ("Abreus", 913 + 850 + 948 + 1031);
 
         //Villa Clara
-        (string, double) Corralillo = ("Corralillo", );
-        (string, double) QuemadodeGüines = ("Quemado de Güines", );
-        (string, double) SagualaGrande = ("Sagua la Grande", );
-        (string, double) Encrucijada = ("Encrucijada", );
-        (string, double) Camajuaní = ("Camajuaní", );
-        (string, double) Caiberién = ("Caiberién", );
-        (string, double) Remedios = ("Remedios", );
-        (string, double) Placetas = ("Placetas", );
-        (string, double) SantaClara = ("Santa Clara", );
-        (string, double) Cifuentes = ("Cifuentes", );
-        (string, double) SantoDomingo = ("Santo Domingo", );
-        (string, double) Ranchuelo = ("Ranchuelo", );
-        (string, double) Manicaragua = ("Manicaragua", );
+        (string, double) Corralillo = ("Corralillo", 638 + 774 + 759 + 778);
+        (string, double) QuemadodeGüines = ("Quemado de Güines", 525 + 577 + 578 + 628);
+        (string, double) SagualaGrande = ("Sagua la Grande", 1332 + 1489 + 1558 + 1546);
+        (string, double) Encrucijada = ("Encrucijada", 742 + 983 + 888 + 965);
+        (string, double) Camajuaní = ("Camajuaní", 1421 + 1833 + 1629 + 1868);
+        (string, double) Caiberién = ("Caiberién", 1016 + 1285 + 1140 + 1375);
+        (string, double) Remedios = ("Remedios", 1020 + 1381 + 1199 + 1346);
+        (string, double) Placetas = ("Placetas", 1700 + 2087 + 1892 + 1990);
+        (string, double) SantaClara = ("Santa Clara", 5973 + 7543 + 7230 + 8534);
+        (string, double) Cifuentes = ("Cifuentes", 625 + 752 + 740 + 844);
+        (string, double) SantoDomingo = ("Santo Domingo", 1184 + 1480 + 1388 + 1542);
+        (string, double) Ranchuelo = ("Ranchuelo", 1241 + 1592 + 1452 + 1650);
+        (string, double) Manicaragua = ("Manicaragua", 1553 + 1762 + 1814 + 2033);
 
         //Sancti Spiritus
-        (string, double) Yaguajay = ("Yaguajay", );
-        (string, double) Jatibonico = ("Jatibonico", );
-        (string, double) Taguasco = ("Taguasco", );
-        (string, double) Cabaiguán = ("Cabaiguán", );
-        (string, double) Fomento = ("Fomento", );
-        (string, double) Trinidad = ("Trinidad", );
-        (string, double) SanctiSpíritus = ("Sancti Spíritus", );
-        (string, double) LaSierpe = ("LaSierpe", );
+        (string, double) Yaguajay = ("Yaguajay", 1276 + 1414 + 1557 + 1713);
+        (string, double) Jatibonico = ("Jatibonico", 1162 + 1195 + 1221 + 1350);
+        (string, double) Taguasco = ("Taguasco", 826 + 935 + 976 + 1058);
+        (string, double) Cabaiguán = ("Cabaiguán", 1629 + 1849 + 1802 + 2068);
+        (string, double) Fomento = ("Fomento", 799 + 812 + 940 + 985);
+        (string, double) Trinidad = ("Trinidad", 2063 + 2279 + 2305 + 2598);
+        (string, double) SanctiSpíritus = ("Sancti Spíritus", 3817 + 4054 + 4247 + 4762);
+        (string, double) LaSierpe = ("LaSierpe", 444 + 481 + 508 + 558);
 
-        //Holguin
-        (string, double) Gibara = ("Gibara", );
-        (string, double) RafaelFreyre = ("Rafael Freyre", );
-        (string, double) Banes = ("Banes", );
-        (string, double) Antilla = ("Antilla", );
-        (string, double) Báguanos = ("Báguanos", );
-        (string, double) Holguín = ("Holguín", );
-        (string, double) CalixtoGarcía = ("Calixto García", );
-        (string, double) Cacocum = ("Cacocum", );
-        (string, double) UrbanoNoris = ("Urbano Noris", );
-        (string, double) Cueto = ("Cueto", );
-        (string, double) Mayarí = ("Mayarí", );
-        (string, double) FrankPaís = ("Frank País", );
-        (string, double) SaguaTánamo = ("Sagua Tánamo", );
-        (string, double) Moa = ("Moa", );
+            //Holguin
+        (string, double) Gibara = ("Gibara", 1865 + 1854 + 2013 + 2202);
+        (string, double) RafaelFreyre = ("Rafael Freyre", 1611 + 1588 + 1577 + 1792);
+        (string, double) Banes = ("Banes", 2100 + 2175 + 2084 + 2462);
+        (string, double) Antilla = ("Antilla", 351 + 384 + 333 + 455);
+        (string, double) Báguanos = ("Báguanos", 1374 + 1316 + 1295 + 1517);
+        (string, double) Holguín = ("Holguín", 9911 + 10814 + 10496 + 12109);
+        (string, double) CalixtoGarcía = ("Calixto García", 1522 + 1590 + 1439 + 1663);
+        (string, double) Cacocum = ("Cacocum", 1104 + 1130 + 1061 + 1282);
+        (string, double) UrbanoNoris = ("Urbano Noris", 1016 + 1071 + 1148 + 1309);
+        (string, double) Cueto = ("Cueto", 927 + 909 + 919 + 988);
+        (string, double) Mayarí = ("Mayarí", 2803 + 2663 + 2596 + 3115);
+        (string, double) FrankPaís = ("Frank País", 724 + 642 + 619 + 807);
+        (string, double) SaguaTánamo = ("Sagua Tánamo", 1495 + 1427 + 1211 + 1438);
+        (string, double) Moa = ("Moa", 2197 + 2551 + 2081 + 2798);
 
         //Camaguey
-        (string, double) CarlosManueldeCéspedes = ("Carlos Manuel de Céspedes", );
-        (string, double) Esmeralda = ("Esmeralda", );
-        (string, double) SierradeCubitas = ("Sierra de Cubitas", );
-        (string, double) Minas = ("Minas", );
-        (string, double) Nuevitas = ("Nuevitas", );
-        (string, double) Guáimaro = ("Guáimaro", );
-        (string, double) Sibanicú = ("Sibanicú", );
-        (string, double) Camagüey = ("Camagüey", );
-        (string, double) Florida = ("Florida", );
-        (string, double) Vertientes = ("Vertientes", );
-        (string, double) Jimaguayú = ("Jimaguayú", );
-        (string, double) Najasa = ("Najasa", );
-        (string, double) SantaCruzdelSur = ("Santa Cruz del Sur", );
+        (string, double) CarlosManueldeCéspedes = ("Carlos Manuel de Céspedes", 645 + 688 + 622 + 825);
+        (string, double) Esmeralda = ("Esmeralda", 837 + 831 + 952 + 975);
+        (string, double) SierradeCubitas = ("Sierra de Cubitas", 499 + 585 + 504 + 642);
+        (string, double) Minas = ("Minas", 941 + 1045 + 1117 + 1261);
+        (string, double) Nuevitas = ("Nuevitas", 1627 + 1784 + 1774 + 2005);
+        (string, double) Guáimaro = ("Guáimaro", 937 + 932 + 933 + 1085);
+        (string, double) Sibanicú = ("Sibanicú", 752 + 849 + 830 + 1004);
+        (string, double) Camagüey = ("Camagüey", 8811 + 9873 + 9424 + 11987);
+        (string, double) Florida = ("Florida", 1736 + 1952 + 2037 + 2431);
+        (string, double) Vertientes = ("Vertientes", 1408 + 1476 + 1470 + 1761);
+        (string, double) Jimaguayú = ("Jimaguayú", 498 + 642 + 550 + 684);
+        (string, double) Najasa = ("Najasa", 355 + 467 + 415 + 519);
+        (string, double) SantaCruzdelSur = ("Santa Cruz del Sur", 1122 + 1266 + 1169 + 1307);
 
         //Granma
-        (string, double) RíoCauto = ("Río Cauto", );
-        (string, double) CautoCristo = ("Cauto Cristo", );
-        (string, double) Jiguaní = ("Jiguaní", );
-        (string, double) Bayamo = ("Bayamo", );
-        (string, double) Yara = ("Yara", );
-        (string, double) Manzanillo = ("Manzanillo", );
-        (string, double) Campechuela = ("Campechuela", );
-        (string, double) MediaLuna = ("MediaLuna", );
-        (string, double) Niquero = ("Niquero", );
-        (string, double) Pilón = ("Pilón", );
-        (string, double) BartoloméMasó = ("Bartolomé Masó", );
-        (string, double) BueyArriba = ("Buey Arriba", );
-        (string, double) Guisa = ("Guisa", );
+        (string, double) RíoCauto = ("Río Cauto", 1348 + 1484 + 1283 + 1574);
+        (string, double) CautoCristo = ("Cauto Cristo", 532 + 579 + 626 + 674);
+        (string, double) Jiguaní = ("Jiguaní", 1745 + 1840 + 1804 + 1793);
+        (string, double) Bayamo = ("Bayamo", 6740 + 7348 + 7104 + 8466);
+        (string, double) Yara = ("Yara", 1434 + 1623 + 1648 + 1846);
+        (string, double) Manzanillo = ("Manzanillo", 3460 + 3510 + 3710 + 4332);
+        (string, double) Campechuela = ("Campechuela", 1232 + 1206 + 1292 + 1440);
+        (string, double) MediaLuna = ("MediaLuna", 963 + 998 + 936 + 989);
+        (string, double) Niquero = ("Niquero", 1309 + 1483 + 1169 + 1435);
+        (string, double) Pilón = ("Pilón", 893 + 986 + 788 + 1060);
+        (string, double) BartoloméMasó = ("Bartolomé Masó", 1590 + 1454 + 1247 + 1417);
+        (string, double) BueyArriba = ("Buey Arriba", 956 + 924 + 818 + 950);
+        (string, double) Guisa = ("Guisa", 1210 + 1285 + 1238 + 1487);
 
         //Guantánamo
-        (string, double) ElSalvador = ("El Salvador", );
-        (string, double) ManuelTames = ("Manuel Tames", );
-        (string, double) Yateras = ("Yateras", );
-        (string, double) Baracoa = ("Baracoa", );
-        (string, double) Maisí = ("Maisí", );
-        (string, double) Imías = ("Imías", );
-        (string, double) SanAntoniodelSur = ("San Antonio del Sur", );
-        (string, double) Caimanera = ("Caimanera", );
-        (string, double) Guantánamo = ("Guantánamo", );
-        (string, double) NicetoPérez = ("Niceto Pérez", );
+        (string, double) ElSalvador = ("El Salvador", 1338 + 1507 + 1582 + 1438);
+        (string, double) ManuelTames = ("Manuel Tames", 1127 + 1355 + 1244 + 1255);
+        (string, double) Yateras = ("Yateras", 507 + 690 + 655 + 707);
+        (string, double) Baracoa = ("Baracoa", 2351 + 2672 + 2478 + 2635);
+        (string, double) Maisí = ("Maisí", 889 + 926 + 876 + 970);
+        (string, double) Imías = ("Imías", 683 + 766 + 701 + 756);
+        (string, double) SanAntoniodelSur = ("San Antonio del Sur", 831 + 882 + 843 + 894);
+        (string, double) Caimanera = ("Caimanera", 347 + 392 + 378 + 436);
+        (string, double) Guantánamo = ("Guantánamo", 6401 + 7210 + 7112 + 8299);
+        (string, double) NicetoPérez = ("Niceto Pérez", 455 + 520 + 563 + 560);
 
         //Santiago de Cuba
-        (string, double) Contramaestre = ("Contra maestre", );
-        (string, double) Mella = ("Mella", );
-        (string, double) SanLuis_SC = ("San Luis", );
-        (string, double) SegundoFrente = ("Segundo Frente", );
-        (string, double) SongoLaMaya = ("Songo La Maya", );
-        (string, double) SantiagodeCuba = ("Santiago de Cuba", );
-        (string, double) PalmaSoriano = ("Palma Soriano", );
-        (string, double) TercerFrente = ("Tercer Frente", );
-        (string, double) Guamá = ("Guamá", );
+        (string, double) Contramaestre = ("Contra maestre", 2756  + 3004  + 3104  + 3740);
+        (string, double) Mella = ("Mella", 1004 + 968  + 1057 + 1321);
+        (string, double) SanLuis_SC = ("San Luis_SC", 2196  + 2229  + 2253  + 2727);
+        (string, double) SegundoFrente = ("Segundo Frente", 1164  + 1248  + 1243  + 1333);
+        (string, double) SongoLaMaya = ("Songo La Maya", 2604 + 2957 + 3014  + 3119);
+        (string, double) SantiagodeCuba = ("Santiago de Cuba", 14000 + 15058 + 15264 + 18123);
+        (string, double) PalmaSoriano = ("Palma Soriano", 3245 + 3465 + 3525 + 4151);
+        (string, double) TercerFrente = ("Tercer Frente", 972 + 952 + 856 + 1070);
+        (string, double) Guamá = ("Guamá", 1027 + 1055 + 1024 + 1158);
 
         //Isla de la Juventud
-        (string, double) IsladelaJuventud = ("Isla de la Juventud", );
+        (string, double) IsladelaJuventud = ("Isla de la Juventud", 4934 + 5347 + 5449 + 5857);
 
         //Las Tunas
-        (string, double) Manatí = ("Manatí", );
-        (string, double) PuertoPadre = ("Puerto Padre", );
-        (string, double) JesúsMenéndez = ("Jesús Menéndez", );
-        (string, double) Majibacoa = ("Majibacoa", );
-        (string, double) LasTunas = ("Las Tunas", );
-        (string, double) Jobabo = ("Jobabo", );
-        (string, double) Colombia = ("Colombia", );
-        (string, double) Amanacio = ("Amanacio", );
+        (string, double) Manatí = ("Manatí", 744 + 779 + 840 + 1025);
+        (string, double) PuertoPadre = ("Puerto Padre", 2279 + 2450 + 2682 + 3139);
+        (string, double) JesúsMenéndez = ("Jesús Menéndez", 1160 + 1151 + 1399 + 1662);
+        (string, double) Majibacoa = ("Majibacoa", 1085 + 1168 + 1213 + 1335);
+        (string, double) LasTunas = ("Las Tunas", 5671 + 6730 + 6497 + 7699);
+        (string, double) Jobabo = ("Jobabo", 943 + 1165 + 1312 + 1200);
+        (string, double) Colombia = ("Colombia", 885 + 935 + 1033 + 1065);
+        (string, double) Amanacio = ("Amanacio", 900 + 1052 + 1195 + 1317);
 
         //Ciego de Ávila
-        (string, double) Chambas = ("Chambas", );
-        (string, double) Morón = ("Morón", );
-        (string, double) Bolivia = ("Bolivia", );
-        (string, double) PrimerodeEnero = ("Primero de Enero", );
-        (string, double) CiroRedondo = ("Ciro Redondo", );
-        (string, double) Florencia = ("Florencia", );
-        (string, double) Majagua = ("Majagua", );
-        (string, double) CiegodeÁvila = ("Ciego de Ávila", );
-        (string, double) Venezuela = ("Venezuela", );
-        (string, double) Baraguá = ("Baraguá", );
+        (string, double) Chambas = ("Chambas", 924 + 1055 + 1141 + 1306);
+        (string, double) Morón = ("Morón", 1981 + 2152 + 2175 + 2631);
+        (string, double) Bolivia = ("Bolivia", 432 + 471 + 534 + 609);
+        (string, double) PrimerodeEnero = ("Primero de Enero", 651 + 570 + 736 + 822);
+        (string, double) CiroRedondo = ("Ciro Redondo", 835 + 898 + 1027 + 12125);
+        (string, double) Florencia = ("Florencia", 448 + 451 + 577 + 644);
+        (string, double) Majagua = ("Majagua", 714 + 734 + 741 + 870);
+        (string, double) CiegodeÁvila = ("Ciego de Ávila", 4312 + 4737 + 4649 + 5726);
+        (string, double) Venezuela = ("Venezuela", 723 + 765 + 780 + 967);
+        (string, double) Baraguá = ("Baraguá", 929 + 945 + 996 + 1156);
 
         List<(string, double)> dataEdadPediátrica = new List<(string, double)>()
         {
@@ -908,7 +910,7 @@
 
         return dataEdadPediátrica;
     }
-    */
+    
 
 
     }
