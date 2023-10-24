@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AlgDeAgrupamiento\AlgDeAgrupamiento.csproj" />
+    <ProjectReference Include="..\ProveedorDeDatosDePoblacionCuba\ProveedorDeDatosDePoblacionCuba.csproj" />
   </ItemGroup>
 
 </Project>

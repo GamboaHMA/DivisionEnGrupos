@@ -34,3 +34,5 @@ C:\Users\ManuelAlejandro\source\repos\DivisionEnGrupos\Ejecutable_\obj\Debug\net
 C:\Users\ManuelAlejandro\source\repos\DivisionEnGrupos\Ejecutable_\obj\Debug\net6.0\Ejecutable_.pdb
 C:\Users\ManuelAlejandro\source\repos\DivisionEnGrupos\Ejecutable_\obj\Debug\net6.0\Ejecutable_.genruntimeconfig.cache
 C:\Users\ManuelAlejandro\source\repos\DivisionEnGrupos\Ejecutable_\obj\Debug\net6.0\ref\Ejecutable_.dll
+C:\Users\ManuelAlejandro\source\repos\DivisionEnGrupos\Ejecutable_\bin\Debug\net6.0\ProveedorDeDatosDePoblacionCuba.dll
+C:\Users\ManuelAlejandro\source\repos\DivisionEnGrupos\Ejecutable_\bin\Debug\net6.0\ProveedorDeDatosDePoblacionCuba.pdb

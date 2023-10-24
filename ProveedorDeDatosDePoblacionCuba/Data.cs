@@ -230,7 +230,7 @@ namespace ProveedorDeDatosDePoblacionCuba
         }
 
         
-        public List<(string, double)> dataEdadAdultoMayor()    // >= 60 anios
+        public List<(string, double)> EdadAdultoMayor()    // >= 60 anios
         {
 
             //Pinar del Rio
@@ -457,7 +457,7 @@ namespace ProveedorDeDatosDePoblacionCuba
         }
 
         
-        public List<(string, double)> dataEdadAdultoJoven()    // 20 - 59 anios
+        public List<(string, double)> EdadAdultoJoven()    // 20 - 59 anios
         {
 
             //Pinar del Rio
@@ -685,7 +685,7 @@ namespace ProveedorDeDatosDePoblacionCuba
     
 
         
-        public List<(string, double)> dataEdadMujerFertil()    // Mujeres 15 - 34 anios
+        public List<(string, double)> EdadMujerFertil()    // Mujeres 15 - 34 anios
         {
 
             //Pinar del Rio
@@ -911,7 +911,28 @@ namespace ProveedorDeDatosDePoblacionCuba
             return dataEdadMujerFertil;
         }
     
+        public List<(string, List<double>)> GetParamEP_EAM_EAJ_EMF()
+        {
+            List<(string, double)> edadPediatrica = EdadPediatrica();
+            List<(string, double)> edadAdultoMayor = EdadAdultoMayor();
+            List<(string, double)> edadAdultoJoven = EdadAdultoJoven();
+            List<(string, double)> edadMujerFertil = EdadMujerFertil();
 
+            List<(string, List<double>)> result = new List<(string, List<double>)>();
+
+            for (int i = 0; i < edadPediatrica.Count; i++)
+            {
+                (string, List<double>) entidad = (edadPediatrica[i].Item1, 
+                                                  new List<double>() { edadPediatrica[i].Item2,
+                                                                       edadAdultoMayor[i].Item2,
+                                                                       edadAdultoJoven[i].Item2,
+                                                                       edadMujerFertil[i].Item2 });
+
+                result.Add(entidad);
+            }
+
+            return result;
+        }
 
     }
 }

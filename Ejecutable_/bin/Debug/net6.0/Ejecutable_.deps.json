@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "Ejecutable_/1.0.0": {
         "dependencies": {
-          "AlgDeAgrupamiento": "1.0.0"
+          "AlgDeAgrupamiento": "1.0.0",
+          "ProveedorDeDatosDePoblacionCuba": "1.0.0"
         },
         "runtime": {
           "Ejecutable_.dll": {}
@@ -17,6 +18,11 @@
       "AlgDeAgrupamiento/1.0.0": {
         "runtime": {
           "AlgDeAgrupamiento.dll": {}
+        }
+      },
+      "ProveedorDeDatosDePoblacionCuba/1.0.0": {
+        "runtime": {
+          "ProveedorDeDatosDePoblacionCuba.dll": {}
         }
       }
     }
@@ -28,6 +34,11 @@
       "sha512": ""
     },
     "AlgDeAgrupamiento/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ProveedorDeDatosDePoblacionCuba/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
