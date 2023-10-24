@@ -26,13 +26,13 @@ namespace AlgDeAgrupamiento
                 {
                     if (item.Count > 2)
                     {
-                        ClustersR(item);
-                        (List<Entity>, List<Entity>) clustersResult = ReturnGroups(item);
+                        ClustersR(item);                                                     //Aplicamos algoritmo para asignar etiquetas
+                        (List<Entity>, List<Entity>) clustersResult = ReturnGroups(item);    //Obtenemos los dos grupos en los que se dividio
 
                         List<Entity> less = clustersResult.Item1;
                         List<Entity> further = clustersResult.Item2;
 
-                        result.Add(less); result.Add(further);
+                        result.Add(less); result.Add(further);                               
                     }
 
                     else result.Add(item);
@@ -42,11 +42,8 @@ namespace AlgDeAgrupamiento
 
                 foreach (var item in result)
                 {
-                    list.Add(item);
+                    list.Add(item);         //Reasignamos a result los grupos obtenidos
                 }
-
-
-
 
                 nivel--;
             }

@@ -2,3 +2,10 @@ C:\Users\ManuelAlejandro\source\repos\DivisionEnGrupos\ProveedorDeDatosDePoblaci
 C:\Users\ManuelAlejandro\source\repos\DivisionEnGrupos\ProveedorDeDatosDePoblacionCuba\obj\Debug\net6.0\ProveedorDeDatosDePoblacionCuba.AssemblyInfoInputs.cache
 C:\Users\ManuelAlejandro\source\repos\DivisionEnGrupos\ProveedorDeDatosDePoblacionCuba\obj\Debug\net6.0\ProveedorDeDatosDePoblacionCuba.AssemblyInfo.cs
 C:\Users\ManuelAlejandro\source\repos\DivisionEnGrupos\ProveedorDeDatosDePoblacionCuba\obj\Debug\net6.0\ProveedorDeDatosDePoblacionCuba.csproj.CoreCompileInputs.cache
+C:\Users\ManuelAlejandro\source\repos\DivisionEnGrupos\ProveedorDeDatosDePoblacionCuba\bin\Debug\net6.0\ProveedorDeDatosDePoblacionCuba.deps.json
+C:\Users\ManuelAlejandro\source\repos\DivisionEnGrupos\ProveedorDeDatosDePoblacionCuba\bin\Debug\net6.0\ProveedorDeDatosDePoblacionCuba.dll
+C:\Users\ManuelAlejandro\source\repos\DivisionEnGrupos\ProveedorDeDatosDePoblacionCuba\bin\Debug\net6.0\ProveedorDeDatosDePoblacionCuba.pdb
+C:\Users\ManuelAlejandro\source\repos\DivisionEnGrupos\ProveedorDeDatosDePoblacionCuba\obj\Debug\net6.0\ProveedorDeDatosDePoblacionCuba.dll
+C:\Users\ManuelAlejandro\source\repos\DivisionEnGrupos\ProveedorDeDatosDePoblacionCuba\obj\Debug\net6.0\refint\ProveedorDeDatosDePoblacionCuba.dll
+C:\Users\ManuelAlejandro\source\repos\DivisionEnGrupos\ProveedorDeDatosDePoblacionCuba\obj\Debug\net6.0\ProveedorDeDatosDePoblacionCuba.pdb
+C:\Users\ManuelAlejandro\source\repos\DivisionEnGrupos\ProveedorDeDatosDePoblacionCuba\obj\Debug\net6.0\ref\ProveedorDeDatosDePoblacionCuba.dll
