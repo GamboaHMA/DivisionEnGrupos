@@ -306,7 +306,24 @@ namespace AlgDeAgrupamiento
             return (less, furhter);
         }
 
-        public double EuclidianDistance(List<double> ent1, List<double> ent2)
+        public static List<List<Entity>> ReturnGroups(List<Entity> list, int level)
+        {
+            List<List<Entity>> result = new List<List<Entity>>() { };    //inicializamos lista de listas
+
+            for (int i = 0; i < level; i++)
+            {
+                result.Add(new List<Entity>());            //inicializamos listas de entidades
+            }
+
+            foreach (var entity in list)
+            {
+                result[entity.group].Add(entity);
+            }
+
+            return result;
+        }
+
+        public static double EuclidianDistance(List<double> ent1, List<double> ent2)
         {
             double tot = 0;
             for (int i = 0; i < ent1.Count; i++)
