@@ -25,18 +25,49 @@ namespace Ejecutable_
             }
 
             Algoritm algoritm = new Algoritm();
+            K_Means K_Means = new K_Means();
 
-            List<List<Entity>> result = algoritm.Clusters(new List<List<Entity>>() { entityList }, 2);
+            List<List<Entity>> result = algoritm.Clusters(new List<List<Entity>>() { entityList }, 3);
 
+            (List<List<Entity>>, List<double>[]) resultKM = K_Means.KMeans(new List<List<Entity>>() { entityList }, 5);
+
+            Console.WriteLine( "Minimiazar distancias maxima");
+            Console.WriteLine( );
             foreach (var entityGroup in result)
             {
+                Console.WriteLine($"Cluster {result.IndexOf(entityGroup)}");
                 foreach (var entity in entityGroup)
                 {
-                    Console.Write( $"{entity} || ");
+                    Console.WriteLine( $"{entity} ");
                 }
 
                 Console.WriteLine( );
             }
+
+            Console.WriteLine("K-Means");
+            Console.WriteLine( );
+            for (int i = 0; i < resultKM.Item1.Count; i++)
+            {
+                Console.WriteLine($"Cluster {i} -> {ImprimeCoordenadas(resultKM.Item2[i])}");
+                for (int j = 0; j < resultKM.Item1[i].Count; j++)
+                {
+                    Console.WriteLine(resultKM.Item1[i][j]);
+                }
+                Console.WriteLine(  );
+            }
+        }
+
+        private static string ImprimeCoordenadas(List<double> item2)
+        {
+            string[] info = { "EdadPediatrica ", "EdadAdultoJoven ", "EdadAdultoMayor ", "EdadMujerFertil " };
+            string result = "(Cant) ";
+
+            for (int i = 0; i < item2.Count; i++)
+            {
+                result = result + info[i] + item2[i].ToString("#.00"); result += "  ";
+            }
+
+            return result;
         }
     }
 }
