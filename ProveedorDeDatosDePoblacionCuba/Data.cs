@@ -290,19 +290,19 @@ namespace ProveedorDeDatosDePoblacionCuba
             (string, double, string) Quivicán = ("Quivicán", 1633 + 4457, "Mayabeque");
 
             //Matanzas                                        //.........................................................
-            (string, double, string) Matanzas = ("Matanzas", 11722, "Matanzas");
-            (string, double, string) Cárdenas = ("Cárdenas", 11722, "Matanzas");
-            (string, double, string) Martí = ("Martí", 11722, "Matanzas");                
-            (string, double, string) Colón = ("Colón", 11722, "Matanzas");
-            (string, double, string) Perico = ("Perico", 11722, "Matanzas"); 
-            (string, double, string) Jovellanos = ("Jovellanos", 11722, "Matanzas");             //no hay datos exactos disponibles, es una burda aproximacion
-            (string, double, string) PedroBetancourt = ("Pedro Betancourt", 11722, "Matanzas");
-            (string, double, string) Limonar = ("Limonar", 11722, "Matanzas");
-            (string, double, string) UnióndeReyes = ("Unión de Reyes", 11722, "Matanzas");
-            (string, double, string) CiénagadeZapata = ("Ciénaga de Zapata", 11722, "Matanzas");
-            (string, double, string) JagueyGrande = ("Jaguey Grande", 11722, "Matanzas");
-            (string, double, string) Calimete = ("Calimete", 11722, "Matanzas");
-            (string, double, string) LosArabos = ("Los Arabos", 11722, "Matanzas"); //.......................................................
+            (string, double, string) Matanzas = ("Matanzas", 10262 + 11904 + 10749, "Matanzas");
+            (string, double, string) Cárdenas = ("Cárdenas", 9765 + 10419 + 12613, "Matanzas");
+            (string, double, string) Martí = ("Martí", 1331 + 1412 + 1636, "Matanzas");                
+            (string, double, string) Colón = ("Colón", 4591 + 4592 + 4867, "Matanzas");
+            (string, double, string) Perico = ("Perico", 1856 + 2010 + 2196, "Matanzas"); 
+            (string, double, string) Jovellanos = ("Jovellanos", 3577 + 3781 + 4061, "Matanzas");             //no hay datos exactos disponibles, es una burda aproximacion
+            (string, double, string) PedroBetancourt = ("Pedro Betancourt", 1838 + 1965 + 2008, "Matanzas");
+            (string, double, string) Limonar = ("Limonar", 1677 + 1870 + 1895, "Matanzas");
+            (string, double, string) UnióndeReyes = ("Unión de Reyes", 2221 + 2241 + 2275, "Matanzas");
+            (string, double, string) CiénagadeZapata = ("Ciénaga de Zapata", 723 + 668 + 799, "Matanzas");
+            (string, double, string) JagueyGrande = ("Jaguey Grande", 3933 + 3554 + 4324, "Matanzas");
+            (string, double, string) Calimete = ("Calimete", 1945 + 1836 + 2004, "Matanzas");
+            (string, double, string) LosArabos = ("Los Arabos", 1414 + 1505 + 1771, "Matanzas"); //.......................................................
 
             //Cienfuegos
             (string, double, string) AguadadePasajeros = ("Aguada de Pasajeros", 902 + 4578 + 892 + 4384, "Cienfuegos");
@@ -517,19 +517,19 @@ namespace ProveedorDeDatosDePoblacionCuba
             (string, double, string) Quivicán = ("Quivicán", 1917 + 2051 + 2277 + 2036 + 1635 + 2439 + 2568 + 2513, "Mayabeque");
 
             //Matanzas
-            (string, double, string) Matanzas = ("Matanzas", 10262 + 11904 + 10749 + 31723, "Matanzas");            //...............................
-            (string, double, string) Cárdenas = ("Cárdenas", 9765 + 10419 + 12613 + 31723, "Matanzas");
-            (string, double, string) Martí = ("Martí", 1331 + 1412 + 1636 + 31723, "Matanzas");
-            (string, double, string) Colón = ("Colón", 4591 + 4592 + 4867 + 31723, "Matanzas");
-            (string, double, string) Perico = ("Perico", 1856 + 2010 + 2196 + 31723, "Matanzas");
-            (string, double, string) Jovellanos = ("Jovellanos", 3577 + 3781 + 4061 + 31723, "Matanzas");
-            (string, double, string) PedroBetancourt = ("Pedro Betancourt", 1838 + 1965 + 2008 + 31723, "Matanzas");//es una aproximacion ya que no se cuenta con
-            (string, double, string) Limonar = ("Limonar", 1677 + 1870 + 1895 + 31723, "Matanzas");                 //los datos exactos de la cantidad de mayores de 34 años
-            (string, double, string) UnióndeReyes = ("Unión de Reyes", 2221 + 2241 + 2275 + 31723, "Matanzas");
-            (string, double, string) CiénagadeZapata = ("Ciénaga de Zapata", 723 + 668 + 799 + 31723, "Matanzas");
-            (string, double, string) JagueyGrande = ("Jaguey Grande", 3933 + 3554 + 4324 + 31723, "Matanzas");
-            (string, double, string) Calimete = ("Calimete", 1945 + 1836 + 2004 + 31723, "Matanzas");
-            (string, double, string) LosArabos = ("Los Arabos", 1414 + 1505 + 1771 + 31723, "Matanzas");
+            (string, double, string) Matanzas = ("Matanzas", 162964 - 10262 - 11904 - 10749 - 10262 - 11904 - 10749, "Matanzas");            //...............................
+            (string, double, string) Cárdenas = ("Cárdenas", 158080 - 9765 - 10419 - 12613 - 9765 - 10419 - 12613, "Matanzas");
+            (string, double, string) Martí = ("Martí", 21652 - 1331 - 1412 - 1636 - 1331 - 1412 - 1636, "Matanzas");
+            (string, double, string) Colón = ("Colón", 68403 - 4591 - 4592 - 4867 - 4591 - 4592 - 4867, "Matanzas");
+            (string, double, string) Perico = ("Perico", 29907 - 1856 - 2010 - 2196 - 1856 - 2010 - 2196, "Matanzas");
+            (string, double, string) Jovellanos = ("Jovellanos", 57381 - 3577 - 3781 - 4061 - 3577 - 3781 - 4061, "Matanzas");
+            (string, double, string) PedroBetancourt = ("Pedro Betancourt", 29838 - 1838 - 1965 - 2008 - 1838 - 1965 - 2008, "Matanzas");//es una aproximacion ya que no se cuenta con
+            (string, double, string) Limonar = ("Limonar", 26633 - 1677 - 1870 - 1895 - 1677 - 1870 - 1895, "Matanzas");                 //los datos exactos de la cantidad de mayores de 34 años
+            (string, double, string) UnióndeReyes = ("Unión de Reyes", 35251 - 2221 - 2241 - 2275 - 2221 - 2241 - 2275, "Matanzas");
+            (string, double, string) CiénagadeZapata = ("Ciénaga de Zapata", 10394 - 723 - 668 - 799 - 723 - 668 - 799, "Matanzas");
+            (string, double, string) JagueyGrande = ("Jaguey Grande", 59736 - 3933 - 3554 - 4324 - 3933 - 3554 - 4324, "Matanzas");
+            (string, double, string) Calimete = ("Calimete", 27493 - 1945 - 1836 - 2004 - 1945 - 1836 - 2004, "Matanzas");
+            (string, double, string) LosArabos = ("Los Arabos", 23336 - 1414 - 1505 - 1771 - 1414 - 1505 - 1771, "Matanzas");
 
             //Cienfuegos
             (string, double, string) AguadadePasajeros = ("Aguada de Pasajeros", 1068 + 970 + 1149 + 983 + 986 + 1011 + 1027 + 966 + 1275 + 1310 + 1304 + 986 + 849 + 1263 + 1286 + 1326, "Cienfuegos");
@@ -925,8 +925,8 @@ namespace ProveedorDeDatosDePoblacionCuba
                 (string, List<double>, string) entidad = (edadPediatrica[i].Item1, 
                                                   new List<double>() { edadPediatrica[i].Item2,
                                                                        edadAdultoMayor[i].Item2,
-                                                                       edadAdultoJoven[i].Item2,
-                                                                       edadMujerFertil[i].Item2 }, edadPediatrica[i].Item3);
+                                                                       edadAdultoJoven[i].Item2/*,
+                                                                       edadMujerFertil[i].Item2 */}, edadPediatrica[i].Item3);
 
                 result.Add(entidad);
             }

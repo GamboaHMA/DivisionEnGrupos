@@ -16,8 +16,14 @@ namespace AlgDeAgrupamiento
         {
             this.caracteristics = new List<string>();
             this.coordinates = new List<double>();
-            this.coordinates = coordinates;
+
+            foreach (var item in coordinates)
+            {
+                this.coordinates.Add(item);
+            }
+
             group = 0;
+
             foreach (var item in caracteristics)
             {
                 this.caracteristics.Add(item);

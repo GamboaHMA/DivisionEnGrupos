@@ -306,7 +306,7 @@ namespace AlgDeAgrupamiento
             return (less, furhter);
         }
 
-        public static List<List<Entity>> ReturnGroups(List<Entity> list, int level)
+        public static List<List<Entity>> UpdateGroups(List<List<Entity>> list, int level)
         {
             List<List<Entity>> result = new List<List<Entity>>() { };    //inicializamos lista de listas
 
@@ -315,9 +315,12 @@ namespace AlgDeAgrupamiento
                 result.Add(new List<Entity>());            //inicializamos listas de entidades
             }
 
-            foreach (var entity in list)
+            foreach (var item in list)
             {
-                result[entity.group].Add(entity);
+                foreach (var entity in item)
+                {
+                    result[entity.group].Add(entity);
+                }
             }
 
             return result;
@@ -331,7 +334,9 @@ namespace AlgDeAgrupamiento
                 tot += Math.Pow(ent1[i] - ent2[i], 2);
             }
 
-            return Math.Sqrt(tot);
+            double result = Math.Sqrt(tot);
+
+            return result;
         }
     }
 }
