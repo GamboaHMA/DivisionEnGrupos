@@ -9,37 +9,40 @@ namespace AlgDeAgrupamiento
 {
     public class K_Means
     {
-        public (List<List<Entity>>, List<double>[]) KMeans(List<List<Entity>> list, int level)
+        public (List<List<Entity>>, List<double>[], List<double>[]) KMeans(List<List<Entity>> list, int level)
         {
-            List<double> reference = list[0][0].coordinates;
+            List<double> reference = list[0][0].coordinates;//referencia para saber que cant de parámetros tiene cada entidad
 
             Algoritm algoritm = new Algoritm();
 
-            list = AsignInitialRandomlyCluster(list, level);
+            list = AsignInitialRandomlyCluster(list, level);//asignamos a cada entidad un grupo aleatorio
 
-            List<double>[] centroids = CalculateCentroids(list, reference.Count);
+            List<double>[] centroids = CalculateCentroids(list, reference.Count);//calculamos centroides a partir de los grupos asignados anteriormente
 
-            bool thereChange = false;
+            bool thereChange = false;//variable que controlará si hay cambios de grupos por parte de las entidades a la hora de asignar al grupo más cercano
 
             do
             {
                 thereChange = false;
-                thereChange = AsignEntityToBestCluster(list, centroids, thereChange);
+                thereChange = AsignEntityToBestCluster(list, centroids, thereChange);//asignar al grupo más cercano
 
-                list = Algoritm.UpdateGroups(list, level);
+                list = Algoritm.UpdateGroups(list, level);//reubicar cada entidad en el grupo que le corresponda en caso de haber algún cambio
 
-                if (thereChange) CalculateCentroids(list, reference.Count);
+                if (thereChange) CalculateCentroids(list, reference.Count);//recalcular los centroides de cada grupo en caso de que haya algún cambio
 
             } while (thereChange);
 
-            return (list, centroids);
+            List<double>[] variances = GetVariancesInEntities(list, centroids);//calcular las varianzas de cada grupo una vez bien asignados
+
+            return (list, centroids, variances);
         }
 
-        public (List<List<Entity>>, List<double>[]) KMeans_Eps(List<List<Entity>> list, double eps) //recibe un epsilon que seria la distancia minima de cada ent en cada cluster
-        {
-            List<double> reference = list[0][0].coordinates;
 
-            List<Entity> listIteration = new List<Entity>();
+        public (List<List<Entity>>, List<double>[], List<double>[]) KMeans_Eps(List<List<Entity>> list, double eps) //recibe un epsilon que seria la distancia minima de cada ent en cada cluster
+        {
+            List<double> reference = list[0][0].coordinates;//referencia para saber que cant de parámetros tiene cada entidad
+
+            List<Entity> listIteration = new List<Entity>();//inicializamos la lista por la cual vamos a iterar
 
             GetInitialList(listIteration, list[0]);//generamos lista de entidades por la cual vamos a iterar
  
@@ -51,11 +54,12 @@ namespace AlgDeAgrupamiento
             {
                 if (item.group == 0)
                 {
+                    list.Add(new List<Entity>());//cada vez que vamos a crear un grupo nuevo agregamos grupo vacío a la lista a retornar
                     Queue.Enqueue(item);//agregamos la entidad inicial, la cual dará comienzo al algoritmo 
-                    list[0].Remove(item);
-                    list.Add(new List<Entity>() { item } );//agregamos la entidad inicial al grupo nuevo
+                    list[0].Remove(item);//removemos de la lista proveedora
+                    list[count + 1].Add(item);//agregamos la entidad inicial al grupo nuevo
 
-                    item.group = count + 1;//actualizamos el valor del grupo
+                    item.group = count + 1;//actualizamos el valor del grupo de la entidad inicial
 
                     while (Queue.Count != 0)
                     {
@@ -70,15 +74,16 @@ namespace AlgDeAgrupamiento
             list.Remove(list[0]);//removemos la lista por la que ibamos iterando, que se queda vacía al temrminar el algoritmo
 
             List<double>[] centroides = CalculateCentroids(list, reference.Count);
+            List<double>[] variances = GetVariancesInEntities(list, centroides);
 
-            return (list, centroides);
+            return (list, centroides, variances);
         }
 
-        public (List<List<Entity>>, List<double>[]) KMeans_ArbCentroids(List<List<Entity>> list, int level)
+        public (List<List<Entity>>, List<double>[], List<double>[]) KMeans_ArbCentroids(List<List<Entity>> list, int level)
         {
             List<double> reference = list[0][0].coordinates;
 
-            (List<double>, List<double>) vectorialLimit = GetVectorLimits(list);//tomamos los limites inferior y superior de la muestra
+            (List<double>, List<double>) vectorialLimit = GetVectorLimits(list);//tomamos los límites inferior y superior de la muestra
             List<double>[] centroids = new List<double>[level];
             GetRandomCentroids(centroids, level, vectorialLimit);//inicializamos centroides arbitrarios
 
@@ -95,7 +100,9 @@ namespace AlgDeAgrupamiento
 
             } while (thereChange);
 
-            return (list, centroids);
+            List<double>[] variances = GetVariancesInEntities(list, centroids);
+
+            return (list, centroids, variances);
 
         }
 
@@ -153,7 +160,7 @@ namespace AlgDeAgrupamiento
                 if(entity.group == 0 && 
                    Algoritm.EuclidianDistance(actualEntity.coordinates, entity.coordinates) < eps)
                 {
-                    entities[0].Remove(entity);//removemos del antiguo grupo(el primero que esta en la lista de listas)
+                    entities[0].Remove(entity);//removemos del grupo proveedor, o sea el primero de la lista
                     entities[count + 1].Add(entity);//agregamos a nuevo grupo
                     Queue.Enqueue(entity);
 
@@ -242,29 +249,27 @@ namespace AlgDeAgrupamiento
             {
                 for (int j = 0; j < list[i].Count; j++)
                 {
-                    VectorialSum(centroids[i], list[i][j].coordinates);
+                    Algoritm.VectorialSum(centroids[i], list[i][j].coordinates);
                 }
 
-                VectorialDiv(centroids[i], list[i].Count);
+                Algoritm.VectorialDiv(centroids[i], list[i].Count);
             }
 
             return centroids;
         }
 
-        private void VectorialDiv(List<double> centroids, int count)     //divide cada coordenada del vector entre el entero count
+        private List<double>[] GetVariancesInEntities(List<List<Entity>> list, List<double>[] centroids)
         {
-            for (int i = 0; i < centroids.Count; i++)
-            {
-                centroids[i] = centroids[i] / count;
-            }
-        }
+            List<double>[] result = new List<double>[list.Count];
 
-        private void VectorialSum(List<double> list, List<double> coordinates)
-        {
             for (int i = 0; i < list.Count; i++)
             {
-                list[i] += coordinates[i];
+                List<double> variance = Algoritm.GetVariance(centroids[i], list[i]);
+
+                result[i] = variance;
             }
+
+            return result;
         }
 
     }

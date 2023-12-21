@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\AlgDeAgrupamiento"
+    "\\AlgDeAgrupamiento",
+    "\\Ejecutable_"
   ],
-  "SelectedNode": "\\AlgDeAgrupamiento\\AlgDeAgrupamiento.csproj",
+  "SelectedNode": "\\AlgDeAgrupamiento\\Algoritm.cs",
   "PreviewInSolutionExplorer": false
 }

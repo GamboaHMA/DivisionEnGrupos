@@ -26,9 +26,9 @@ namespace Ejecutable_
 
            // List<List<Entity>> result = algoritm.Clusters(new List<List<Entity>>() { entityList }, 3);
 
-            (List<List<Entity>>, List<double>[]) resultKM = K_Means.KMeans(new List<List<Entity>>() { entityList }, 20);
-            (List<List<Entity>>, List<double>[]) resultKM_Arb = K_Means.KMeans_ArbCentroids(new List<List<Entity>>() { entityList }, 10);
-            (List<List<Entity>>, List<double>[]) resultKM_Eps = K_Means.KMeans_Eps(new List<List<Entity>>() { entityList }, 0.2);
+            //(List<List<Entity>>, List<double>[], List<double>[]) resultKM = K_Means.KMeans(new List<List<Entity>>() { entityList }, 10);
+            //(List<List<Entity>>, List<double>[], List<double>[]) resultKM_Arb = K_Means.KMeans_ArbCentroids(new List<List<Entity>>() { entityList }, 10);
+            (List<List<Entity>>, List<double>[], List<double>[]) resultKM_Eps = K_Means.KMeans_Eps(new List<List<Entity>>() { entityList }, 0.05);
 
 
             //Console.WriteLine( "Minimiazar distancias maxima");
@@ -80,17 +80,17 @@ namespace Ejecutable_
             }
         }
 
-        private static void ImprimeResultados((List<List<Entity>>, List<double>[]) result)
+        private static void ImprimeResultados((List<List<Entity>>, List<double>[], List<double>[]) result)
         {
             Console.WriteLine();
             for (int i = 0; i < result.Item1.Count; i++)
             {
-                Console.WriteLine($"Cluster {i} -> {ImprimeCoordenadas(result.Item2[i])}");
+                Console.WriteLine($"Cluster{i} Cant({result.Item1[i].Count})\n\nParámetros:\n{ImprimeCoordenadas(result.Item2[i])}\nvarianza:\n{ImprimeCoordenadas(result.Item3[i])}\nMunicipios:");
                 for (int j = 0; j < result.Item1[i].Count; j++)
                 {
                     Console.WriteLine(result.Item1[i][j] + $"({result.Item1[i][j].caracteristics[1]})");
                 }
-                Console.WriteLine();
+                Console.WriteLine("------------------------------------");
             }
 
         }
@@ -98,14 +98,15 @@ namespace Ejecutable_
         private static string ImprimeCoordenadas(List<double> item2)
         {
             string[] info = { "AdMayor/AdJoven ", "AdMayor/EdadPediátrica", "AdJoven/EdadPediátrica" };
-            string result = "(Cant) ";
+            string result = "";
 
             for (int i = 0; i < item2.Count; i++)
             {
-                result = result + info[i] + item2[i].ToString(" #.00"); result += "  ";
+                result = result + info[i] + item2[i].ToString(" #.0000"); result += "\n";
             }
 
             return result;
         }
+
     }
 }

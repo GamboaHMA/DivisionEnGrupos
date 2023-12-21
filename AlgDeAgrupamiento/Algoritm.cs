@@ -338,5 +338,46 @@ namespace AlgDeAgrupamiento
 
             return result;
         }
+
+        public static List<double> GetVariance(List<double> media, List<Entity> group)
+        {
+            List<double> result = new List<double>();//inicializamos la lista de varianzas a devolver
+
+            if(group.Count != 0)//verificamos que el grupo contenga entidades
+            {
+                foreach (var entity in group[0].coordinates) { result.Add(0); }//inicializamos valores del resultado
+
+                foreach (var item in group)//iteramos por cada entidad
+                {
+                    for (int i = 0; i < item.coordinates.Count; i++)//iteramos por cada parámetro
+                    {
+                        double coordinate = Math.Pow(item.coordinates[i] - media[i], 2);//restamos promedio al valor del parámetro
+                        result[i] += coordinate;//acumulamos
+                    }
+                }
+
+                VectorialDiv(result, group.Count);//dividimos entre el total de entidades para hallar el valor promedio de dispersión o sea la varianza
+
+                return result;
+            }
+
+            return result;
+        }
+        public static void VectorialDiv(List<double> centroids, int count)     //divide cada coordenada del vector entre el entero count
+        {
+            for (int i = 0; i < centroids.Count; i++)
+            {
+                centroids[i] = centroids[i] / count;
+            }
+        }
+        public static void VectorialSum(List<double> list, List<double> coordinates)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                list[i] += coordinates[i];
+            }
+        }
+
+
     }
 }
