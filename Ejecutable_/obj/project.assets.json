@@ -11,6 +11,16 @@
         "runtime": {
           "bin/placeholder/AlgDeAgrupamiento.dll": {}
         }
+      },
+      "ProveedorDeDatosDePoblacionCuba/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/ProveedorDeDatosDePoblacionCuba.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ProveedorDeDatosDePoblacionCuba.dll": {}
+        }
       }
     }
   },
@@ -19,11 +29,17 @@
       "type": "project",
       "path": "../AlgDeAgrupamiento/AlgDeAgrupamiento.csproj",
       "msbuildProject": "../AlgDeAgrupamiento/AlgDeAgrupamiento.csproj"
+    },
+    "ProveedorDeDatosDePoblacionCuba/1.0.0": {
+      "type": "project",
+      "path": "../ProveedorDeDatosDePoblacionCuba/ProveedorDeDatosDePoblacionCuba.csproj",
+      "msbuildProject": "../ProveedorDeDatosDePoblacionCuba/ProveedorDeDatosDePoblacionCuba.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "AlgDeAgrupamiento >= 1.0.0"
+      "AlgDeAgrupamiento >= 1.0.0",
+      "ProveedorDeDatosDePoblacionCuba >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -55,6 +71,9 @@
           "projectReferences": {
             "C:\\Users\\ManuelAlejandro\\source\\repos\\DivisionEnGrupos\\AlgDeAgrupamiento\\AlgDeAgrupamiento.csproj": {
               "projectPath": "C:\\Users\\ManuelAlejandro\\source\\repos\\DivisionEnGrupos\\AlgDeAgrupamiento\\AlgDeAgrupamiento.csproj"
+            },
+            "C:\\Users\\ManuelAlejandro\\source\\repos\\DivisionEnGrupos\\ProveedorDeDatosDePoblacionCuba\\ProveedorDeDatosDePoblacionCuba.csproj": {
+              "projectPath": "C:\\Users\\ManuelAlejandro\\source\\repos\\DivisionEnGrupos\\ProveedorDeDatosDePoblacionCuba\\ProveedorDeDatosDePoblacionCuba.csproj"
             }
           }
         }

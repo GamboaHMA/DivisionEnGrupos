@@ -8,12 +8,12 @@ namespace AlgDeAgrupamiento
 {
     public class Distance
     {
-        public List<Entity> entities {  get; set; }
+        public List<Entity> entities { get; set; }
         public Entity? Element1 { get; set; }
         public Entity? Element2 { get; set; }
         public double Value { get; set; }
 
-        
+
 
         public Distance? Root { get; set; }
         public Distance? Parent { get; set; }
@@ -38,7 +38,7 @@ namespace AlgDeAgrupamiento
 
         public Distance(List<Distance> Array)
         {
-            if (Array.Count() != 0) 
+            if (Array.Count() != 0)
             {
                 Link(Array);
 
@@ -69,26 +69,26 @@ namespace AlgDeAgrupamiento
             else max = i;
 
             if (r <= Array.Count - 1 && Array[r].Value > Array[max].Value) max = r;
-            
+
             if (max != i)
             {
                 if (max == l)
                 {
                     if (Array[i].Parent == Array[i]) Array[l].Parent = Array[l];
-                    else 
+                    else
                     {
                         Array[l].Parent = Array[i].Parent;
                         if (Array[i].Parent.Left == Array[i]) Array[i].Parent.Left = Array[l];
                         else Array[i].Parent.Right = Array[l];
-                    } 
-                    
-                    Array[i].Parent = Array[l]; 
-                    Array[i].Left = Array[l].Left; 
+                    }
+
+                    Array[i].Parent = Array[l];
+                    Array[i].Left = Array[l].Left;
                     Array[l].Left = Array[i]; Distance comodin = Array[l].Right;
                     Array[l].Right = Array[i].Right;
                     Array[i].Right = comodin;
-                    
-                    if(r <= Array.Count - 1)
+
+                    if (r <= Array.Count - 1)
                     {
                         Array[r].Parent = Array[l];
                     }
@@ -105,11 +105,11 @@ namespace AlgDeAgrupamiento
                         else Array[i].Parent.Right = Array[r];
                     }
 
-                    Array[i].Parent = Array[r]; 
+                    Array[i].Parent = Array[r];
                     Array[l].Parent = Array[r];
-                    Array[i].Left = Array[r].Left; 
+                    Array[i].Left = Array[r].Left;
                     Array[i].Right = Array[r].Right;
-                    Array[r].Left = Array[l]; 
+                    Array[r].Left = Array[l];
                     Array[r].Right = Array[i];
                 }
 
@@ -117,9 +117,9 @@ namespace AlgDeAgrupamiento
                 Array[i] = Array[max];
                 Array[max] = comdin;
 
-                HeapiFy(Array, max); 
+                HeapiFy(Array, max);
             }
-                
+
         }
 
         public void Link(List<Distance> Array)
@@ -142,7 +142,7 @@ namespace AlgDeAgrupamiento
 
         public void UpDateRoot(List<Distance> Array)
         {
-            if(Array.Count != 0)
+            if (Array.Count != 0)
             {
                 Distance root = Array[0];
                 Array[0].Parent = Array[0];
@@ -157,7 +157,7 @@ namespace AlgDeAgrupamiento
         {
 
             if (Arr[Arr.Count - 1] == Arr[Arr.Count - 1].Parent.Left) Arr[Arr.Count - 1].Parent.Left = null;
-            else Arr[Arr.Count - 1].Right = null; 
+            else Arr[Arr.Count - 1].Right = null;
 
             Arr[Arr.Count - 1].Left = Arr[0].Left; Arr[Arr.Count - 1].Right = Arr[0].Right;
             Arr[Arr.Count - 1].Parent = Arr[Arr.Count - 1];

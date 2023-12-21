@@ -13,12 +13,12 @@ namespace AlgDeAgrupamiento
 
         }
 
-               
-        
+
+
         public List<List<Entity>> Clusters(List<List<Entity>> list, int nivel)
         {
-            
-            while(nivel != 0)
+
+            while (nivel != 0)
             {
                 List<List<Entity>> result = new List<List<Entity>>();
 
@@ -26,8 +26,8 @@ namespace AlgDeAgrupamiento
                 {
                     if (item.Count > 2)
                     {
-                        ClustersR(item);
-                        (List<Entity>, List<Entity>) clustersResult = ReturnGroups(item);
+                        ClustersR(item);                                                     //Aplicamos algoritmo para asignar etiquetas
+                        (List<Entity>, List<Entity>) clustersResult = ReturnGroups(item);    //Obtenemos los dos grupos en los que se dividio
 
                         List<Entity> less = clustersResult.Item1;
                         List<Entity> further = clustersResult.Item2;
@@ -42,11 +42,8 @@ namespace AlgDeAgrupamiento
 
                 foreach (var item in result)
                 {
-                    list.Add(item);
+                    list.Add(item);         //Reasignamos a result los grupos obtenidos
                 }
-
-
-
 
                 nivel--;
             }
@@ -73,7 +70,7 @@ namespace AlgDeAgrupamiento
             Distance HeapMax = new Distance(distances);
             List<Entity> Entities = new List<Entity>();
 
-            if(HeapMax.Arr != null)
+            if (HeapMax.Arr != null)
             {
                 foreach (var item in HeapMax.Arr)
                 {
@@ -90,14 +87,14 @@ namespace AlgDeAgrupamiento
                 clusters.Add(new List<Entity>() { e1 }); e1.group = count;                // asigno un elemento al grupo A y otro al grupo B
                 clusters_c.Add(new List<Entity>() { e2 }); e2.group = -1 * count;         // y luego le añado a la propiedad del elemento su grupo                                                                                      // asumimos que el grupo 1 es el A, y el grupo -1 es el B
 
-                ClustersR(HeapMax.Arr, Entities, clusters, clusters_c, e1, e2, count, 3);     
+                ClustersR(HeapMax.Arr, Entities, clusters, clusters_c, e1, e2, count, 3);
             }
         }
 
-        private void ClustersR(List<Distance> HeapMax, List<Entity> entities, List<List<Entity>> c1, 
+        private void ClustersR(List<Distance> HeapMax, List<Entity> entities, List<List<Entity>> c1,
                                    List<List<Entity>> c2, Entity e1, Entity e2, int count, int step)
         {
-            
+
             switch (step)
             {
                 case 3:
@@ -118,9 +115,9 @@ namespace AlgDeAgrupamiento
                     break;
 
                 case 5:
-                    if  ((Math.Abs(e1.group) == 1 && Math.Abs(e2.group) != 1) ||
+                    if ((Math.Abs(e1.group) == 1 && Math.Abs(e2.group) != 1) ||
                          (Math.Abs(e1.group) != 1 && Math.Abs(e2.group) == 1))
-                         ClustersR(HeapMax, entities, c1, c2, e1, e2, count, 6);
+                        ClustersR(HeapMax, entities, c1, c2, e1, e2, count, 6);
 
                     else ClustersR(HeapMax, entities, c1, c2, e1, e2, count, 8);
                     break;
@@ -152,7 +149,7 @@ namespace AlgDeAgrupamiento
                 case 10:
                     if (e1.group != 0) ChangeLabels(e1, e2, c1, c2);
                     else ChangeLabels(e2, e1, c1, c2);    //--------------------------------------------- step 11
-                    ClustersR(HeapMax, entities, c1, c2, e1, e2, count, 3); 
+                    ClustersR(HeapMax, entities, c1, c2, e1, e2, count, 3);
                     break;
 
                 case 12:
@@ -189,7 +186,7 @@ namespace AlgDeAgrupamiento
         {
             if (e1.group < 0)
             {
-                if(e2.group == 0)
+                if (e2.group == 0)
                 {
                     c1[-1 * e1.group - 1].Add(e2); e2.group = -1 * e1.group;
                 }
@@ -201,7 +198,7 @@ namespace AlgDeAgrupamiento
                     {
                         foreach (var item in c2[-1 * group - 1])
                         {
-                            c1[-1 * e1.group - 1].Add(item); item.group = -1 * e1.group; 
+                            c1[-1 * e1.group - 1].Add(item); item.group = -1 * e1.group;
                         }
                         c2[-1 * group - 1].Clear();
 
@@ -309,7 +306,27 @@ namespace AlgDeAgrupamiento
             return (less, furhter);
         }
 
-        public double EuclidianDistance(List<double> ent1, List<double> ent2)
+        public static List<List<Entity>> UpdateGroups(List<List<Entity>> list, int level)
+        {
+            List<List<Entity>> result = new List<List<Entity>>() { };    //inicializamos lista de listas
+
+            for (int i = 0; i < level; i++)
+            {
+                result.Add(new List<Entity>());            //inicializamos listas de entidades
+            }
+
+            foreach (var item in list)
+            {
+                foreach (var entity in item)
+                {
+                    result[entity.group].Add(entity);
+                }
+            }
+
+            return result;
+        }
+
+        public static double EuclidianDistance(List<double> ent1, List<double> ent2)
         {
             double tot = 0;
             for (int i = 0; i < ent1.Count; i++)
@@ -317,7 +334,50 @@ namespace AlgDeAgrupamiento
                 tot += Math.Pow(ent1[i] - ent2[i], 2);
             }
 
-            return Math.Sqrt(tot);
+            double result = Math.Sqrt(tot);
+
+            return result;
         }
+
+        public static List<double> GetVariance(List<double> media, List<Entity> group)
+        {
+            List<double> result = new List<double>();//inicializamos la lista de varianzas a devolver
+
+            if (group.Count != 0)//verificamos que el grupo contenga entidades
+            {
+                foreach (var entity in group[0].coordinates) { result.Add(0); }//inicializamos valores del resultado
+
+                foreach (var item in group)//iteramos por cada entidad
+                {
+                    for (int i = 0; i < item.coordinates.Count; i++)//iteramos por cada parámetro
+                    {
+                        double coordinate = Math.Pow(item.coordinates[i] - media[i], 2);//restamos promedio al valor del parámetro
+                        result[i] += coordinate;//acumulamos
+                    }
+                }
+
+                VectorialDiv(result, group.Count);//dividimos entre el total de entidades para hallar el valor promedio de dispersión o sea la varianza
+
+                return result;
+            }
+
+            return result;
+        }
+        public static void VectorialDiv(List<double> centroids, int count)     //divide cada coordenada del vector entre el entero count
+        {
+            for (int i = 0; i < centroids.Count; i++)
+            {
+                centroids[i] = centroids[i] / count;
+            }
+        }
+        public static void VectorialSum(List<double> list, List<double> coordinates)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                list[i] += coordinates[i];
+            }
+        }
+
+
     }
 }
