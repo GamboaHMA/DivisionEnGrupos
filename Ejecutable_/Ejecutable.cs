@@ -26,13 +26,13 @@ namespace Ejecutable_
 
            // List<List<Entity>> result = algoritm.Clusters(new List<List<Entity>>() { entityList }, 3);
 
-            (List<List<Entity>>, List<double>[], List<double>[]) resultKM = K_Means.KMeans(new List<List<Entity>>() { entityList }, 3);
-            //(List<List<Entity>>, List<double>[], List<double>[]) resultKM_Arb = K_Means.KMeans_ArbCentroids(new List<List<Entity>>() { entityList }, 10);
+            //(List<List<Entity>>, List<double>[], List<double>[]) resultKM = K_Means.KMeans(new List<List<Entity>>() { entityList }, 20);
+            (List<List<Entity>>, List<double>[], List<double>[]) resultKM_Arb = K_Means.KMeans_ArbCentroids(new List<List<Entity>>() { entityList }, 5);
             //(List<List<Entity>>, List<double>[], List<double>[]) resultKM_Eps = K_Means.KMeans_Eps(new List<List<Entity>>() { entityList }, 0.05);
             //lista de mun,   lista de centroides, lista de varianzas
 
             Console.WriteLine("K-Means");
-            ImprimeResultados(resultKM);
+            ImprimeResultados(resultKM_Arb);
         }
 
         private static void FillEntityList(List<(string, List<double>, string)> data, List<Entity> entityList, int option)

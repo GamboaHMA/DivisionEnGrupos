@@ -85,7 +85,7 @@ namespace AlgDeAgrupamiento
 
             (List<double>, List<double>) vectorialLimit = GetVectorLimits(list);//tomamos los límites inferior y superior de la muestra
             List<double>[] centroids = new List<double>[level];
-            GetRandomCentroids(centroids, level, vectorialLimit);//inicializamos centroides arbitrarios
+            GetRandomCentroids(centroids, level, list[0]);//inicializamos centroides arbitrarios
 
             bool thereChange = false;
 
@@ -106,25 +106,23 @@ namespace AlgDeAgrupamiento
 
         }
 
-        private void GetRandomCentroids(List<double>[] centroids, int level, (List<double>, List<double>) vectorialLimit)
+        private void GetRandomCentroids(List<double>[] centroids, int level, List<Entity> list)
         {
             Random random = new Random();
 
-            List<double> limiteInferior = vectorialLimit.Item1;
-            List<double> limiteSuperior = vectorialLimit.Item2;
+            List<Entity> new_list = new List<Entity>();
+            foreach (var item in list)
+            {
+                new_list.Add(new Entity(item.coordinates, item.caracteristics));
+            }
 
             for (int i = 0; i < level; i++)
             {
-                centroids[i] = new List<double>();
-                for (int j = 0; j < limiteInferior.Count; j++)
-                {
-                    (int, int) randomDouble = ((int)(limiteInferior[j] * 100000), (int)(limiteSuperior[j] * 100000));
-                    double randomDouble_ = random.Next(randomDouble.Item1, randomDouble.Item2);
-                    double resultRandom = randomDouble_ / 100000;
-                    double value = limiteInferior[j] + resultRandom;
+                int random_ = random.Next(0, new_list.Count);
 
-                    centroids[i].Add(value);
-                }
+                Entity entity = new_list[random_];
+                centroids[i] = entity.coordinates;
+                new_list.Remove(entity);
             }
         }
 
