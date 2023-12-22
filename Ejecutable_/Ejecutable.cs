@@ -31,20 +31,6 @@ namespace Ejecutable_
             //(List<List<Entity>>, List<double>[], List<double>[]) resultKM_Eps = K_Means.KMeans_Eps(new List<List<Entity>>() { entityList }, 0.05);
             //lista de mun,   lista de centroides, lista de varianzas
 
-
-            //Console.WriteLine( "Minimiazar distancias maxima");
-            //Console.WriteLine( );
-            //foreach (var entityGroup in result)
-            //{
-            //    Console.WriteLine($"Cluster {result.IndexOf(entityGroup)}");
-            //    foreach (var entity in entityGroup)
-            //    {
-            //        Console.WriteLine( $"{entity} ");
-            //    }
-
-            //    Console.WriteLine( );
-            //}
-
             Console.WriteLine("K-Means");
             ImprimeResultados(resultKM);
         }
@@ -84,7 +70,8 @@ namespace Ejecutable_
         private static void ImprimeResultados((List<List<Entity>>, List<double>[], List<double>[]) result)
         {
             Console.WriteLine();
-            Console.WriteLine($"Evaluación (Índice Calinski Harabasz): {ClusterEvaluation.CalinskiHarabasz(result)}"); 
+            Console.WriteLine($"Evaluación (Índice Calinski Harabasz): {ClusterEvaluation.CalinskiHarabasz(result)}\n" + 
+                              $"           (Índice Davies Bouldin): {ClusterEvaluation.DaviesBouldin(result)}\n"); 
 
             for (int i = 0; i < result.Item1.Count; i++)
             {
