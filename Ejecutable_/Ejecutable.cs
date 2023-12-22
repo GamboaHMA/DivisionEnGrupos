@@ -26,7 +26,7 @@ namespace Ejecutable_
 
            // List<List<Entity>> result = algoritm.Clusters(new List<List<Entity>>() { entityList }, 3);
 
-            (List<List<Entity>>, List<double>[], List<double>[]) resultKM = K_Means.KMeans(new List<List<Entity>>() { entityList }, 10);
+            (List<List<Entity>>, List<double>[], List<double>[]) resultKM = K_Means.KMeans(new List<List<Entity>>() { entityList }, 3);
             //(List<List<Entity>>, List<double>[], List<double>[]) resultKM_Arb = K_Means.KMeans_ArbCentroids(new List<List<Entity>>() { entityList }, 10);
             //(List<List<Entity>>, List<double>[], List<double>[]) resultKM_Eps = K_Means.KMeans_Eps(new List<List<Entity>>() { entityList }, 0.05);
             //lista de mun,   lista de centroides, lista de varianzas
@@ -84,9 +84,15 @@ namespace Ejecutable_
         private static void ImprimeResultados((List<List<Entity>>, List<double>[], List<double>[]) result)
         {
             Console.WriteLine();
+            Console.WriteLine($"Evaluación (Índice Calinski Harabasz): {ClusterEvaluation.CalinskiHarabasz(result)}"); 
+
             for (int i = 0; i < result.Item1.Count; i++)
             {
-                Console.WriteLine($"Cluster{i} Cant({result.Item1[i].Count})\n\nParámetros:\n{ImprimeCoordenadas(result.Item2[i])}\nvarianza:\n{ImprimeCoordenadas(result.Item3[i])}\nMunicipios:");
+                Console.WriteLine($"Cluster{i} Cant({result.Item1[i].Count})\n\nParámetros:\n" +
+                    $"{ImprimeCoordenadas(result.Item2[i])}\nvarianza:\n{ImprimeCoordenadas(result.Item3[i])}\nMunicipios:"); 
+
+                double test = ClusterEvaluation.CalinskiHarabasz(result);
+
                 for (int j = 0; j < result.Item1[i].Count; j++)
                 {
                     Console.WriteLine(result.Item1[i][j] + $"({result.Item1[i][j].caracteristics[1]})"
